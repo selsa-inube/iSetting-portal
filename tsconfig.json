@@ -16,7 +16,8 @@
       "@context/*": ["src/context/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@design/*": ["src/design/*"]
     },
 
     /* Bundler mode */

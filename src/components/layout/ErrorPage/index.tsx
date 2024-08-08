@@ -10,6 +10,8 @@ import errorImage from "@assets/images/timeout.png";
 
 import { StyledCompanyLogo, StyledErrorImage } from "./styles";
 
+import { basic } from "@design/tokens";
+
 interface ErrorPageProps {
   logo?: string;
   logoAlt?: string;
@@ -34,7 +36,7 @@ function ErrorPage(props: ErrorPageProps) {
 
   return (
     <Stack
-      padding={matches["(max-width: 600px)"] ? "s400" : "s1000"}
+      padding={matches["(max-width: 600px)"] ? `{${basic.spacing.s32}}` : `{${basic.spacing.s80}}`}// //
       gap={matches["(max-width: 1000px)"] ? "64px" : "120px"}
       direction="column"
     >
@@ -47,8 +49,8 @@ function ErrorPage(props: ErrorPageProps) {
         alignItems="center"
         gap={matches["(max-width: 600px)"] ? "s800" : "120px"}
       >
-        <Stack gap="24px" direction="column">
-          <Stack gap="16px" direction="column">
+        <Stack gap={basic.spacing.s24} direction="column">
+          <Stack gap={basic.spacing.s16} direction="column">
             <Text type="title">{heading}</Text>
             <Text type="title" size="medium">
               {description}
