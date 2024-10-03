@@ -26,30 +26,29 @@ export const RulesConfiguration = (props: RulesConfigurationProps) => {
         <StyledContainer>
             <Blanket>
                 <StyledModal>
-                    <Stack direction="column" gap={basic.spacing.s20}>
-                        <Stack direction="column" gap={basic.spacing.s16}>
-                            <Stack direction="column" gap={basic.spacing.s8}>
-                                <Stack
-                                    alignItems="center"
-                                    justifyContent="space-between"
+                    <Stack direction="column" gap={basic.spacing.s24}>
+                        <Stack direction="column" gap={basic.spacing.s24}>
+                            <Stack
+                                alignItems="center"
+                                justifyContent="space-between"
+                            >
+                                <Text
+                                    type="title"
+                                    size="large"
+                                    appearance="dark"
+                                    weight="bold"
                                 >
-                                    <Text
-                                        type="title"
-                                        size="medium"
-                                        appearance="dark"
-                                    >
-                                        {title}
-                                    </Text>
-                                    <MdClear
-                                        size="24px"
-                                        cursor="pointer"
-                                        onClick={onCloseModal}
-                                    />
-                                </Stack>
+                                    {title}
+                                </Text>
+                                <MdClear
+                                    size="24px"
+                                    cursor="pointer"
+                                    onClick={onCloseModal}
+                                />
                             </Stack>
-
-                            {children}
                         </Stack>
+
+                        {children}
                     </Stack>
                 </StyledModal>
             </Blanket>

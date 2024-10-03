@@ -14,11 +14,13 @@ interface MultipleChoicesProps {
   labelSelect: string;
   labelSelected: string;
   onHandleSelectCheckChange: (
-    event: React.ChangeEvent<HTMLInputElement>
+    options: IOptionItemCheckedProps[]
   ) => void;
   options: IOptionItemCheckedProps[];
   placeholderSelect?: string;
   required?: boolean;
+  message?: string;
+  onBlur?: () => void;
 }
 
 const MultipleChoices = (props: MultipleChoicesProps) => {
@@ -30,6 +32,8 @@ const MultipleChoices = (props: MultipleChoicesProps) => {
     options,
     placeholderSelect = "",
     required = false,
+    message,
+    onBlur,
   } = props;
 
   const [optionsSelect, setOptionsSelect] = useState(options);
@@ -43,7 +47,7 @@ const MultipleChoices = (props: MultipleChoicesProps) => {
       return option;
     });
     setOptionsSelect(newOptions);
-    onHandleSelectCheckChange(event);
+    onHandleSelectCheckChange(newOptions);
   };
 
   const onRemoveTag = (id: string) => {
@@ -99,6 +103,9 @@ const MultipleChoices = (props: MultipleChoicesProps) => {
         required={required}
         value=""
         size="compact"
+        fullwidth
+        message={message}
+        onBlur={onBlur}
       />
     </StyledContainer>
   );

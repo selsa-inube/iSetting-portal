@@ -54,9 +54,9 @@ Other.args = {
           labelSelect="Select"
           handleSelectChange={() => true}
           options={[
-              { id: "1", label: "Option 1" },
-              { id: "2", label: "Option 2" },
-              { id: "3", label: "Option 3" },
+              { id: "1", label: "Option 1", value: "Option 1"},
+              { id: "2", label: "Option 2", value: "Option 2"},
+              { id: "3", label: "Option 3", value: "Option 3"},
           ]}/>
   ),
   handleToggleChange: () => {},

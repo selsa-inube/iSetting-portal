@@ -26,7 +26,7 @@ Default.args = {
   id: "MultipleOptionesCategorias",
   labelSelect: "Selecciones las categorias",
   labelSelected: "Categorias Seleccionadas",
-  onHandleSelectCheckChange: () => true,
+  onHandleSelectCheckChange: (options) => console.log(options),
   options: options,
   required: false,
   placeholderSelect: "Selecciona una categoria",
