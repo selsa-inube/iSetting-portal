@@ -8,8 +8,8 @@ import {
   IRuleDecision,
   IValue,
   ValueHowToSetUp,
-} from "@src/pages/rules/types";
-import { RulesConfiguration } from "@src/components/modals/RulesConfiguration";
+} from "@pages/rules/types";
+import { RulesConfiguration } from "@components/modals/RulesConfiguration";
 import { DecisionModalEditUI } from "./interface";
 
 export interface DecisionModalEditProps {
@@ -36,43 +36,53 @@ interface TypeDataOutput {
   value: string | number | { rangeFrom: number; rangeTo: number } | undefined;
 }
 
-const typeData = (element: IDecision | ICondition):TypeDataOutput | undefined => {
-  const value =element.possibleValue;
+const typeData = (
+  element: IDecision | ICondition
+): TypeDataOutput | undefined => {
+  const value = element.possibleValue;
   switch (element.howToSetUp) {
     case ValueHowToSetUp.LIST_OF_VALUES:
       return {
         schema: Yup.string(),
-        value: value.listSelected?.[0]
+        value: value.listSelected?.[0],
       };
     case ValueHowToSetUp.LIST_OF_VALUES_MULTI:
       return {
         schema: Yup.string(),
-        value: ""
+        value: "",
       };
     case ValueHowToSetUp.RANGE:
       return {
         schema: Yup.number(),
-        value: { rangeFrom: value?.rangeFrom as number || 0, rangeTo: value?.rangeTo as number || 0 }
+        value: {
+          rangeFrom: (value?.rangeFrom as number) || 0,
+          rangeTo: (value?.rangeTo as number) || 0,
+        },
       };
     case ValueHowToSetUp.GREATER_THAN:
     case ValueHowToSetUp.LESS_THAN:
     case ValueHowToSetUp.EQUAL:
       return {
         schema: Yup.string().required("Required"),
-        value: value.value
+        value: value.value,
       };
     default:
       return {
         schema: Yup.string(),
-        value: undefined
+        value: undefined,
       };
-      
   }
 };
 
 const ValueValidationSchema = (decision: IRuleDecision) => {
   const respValue: { [key: string]: Yup.StringSchema | Yup.NumberSchema } = {},
-        initialValues: { [key: string]: string | number | { rangeFrom: number; rangeTo: number } | undefined  } = {};
+    initialValues: {
+      [key: string]:
+        | string
+        | number
+        | { rangeFrom: number; rangeTo: number }
+        | undefined;
+    } = {};
   if (decision.decision) {
     const decisionData = typeData(decision.decision);
     if (decisionData) {
@@ -80,7 +90,7 @@ const ValueValidationSchema = (decision: IRuleDecision) => {
       initialValues[decision.decision.name] = decisionData.value;
     }
   }
-  
+
   if (decision.conditions) {
     decision.conditions.forEach((condition) => {
       const typeDataResult = typeData(condition);
@@ -90,9 +100,8 @@ const ValueValidationSchema = (decision: IRuleDecision) => {
       }
     });
   }
-  return {validationSchema: Yup.object().shape(respValue), initialValues};
+  return { validationSchema: Yup.object().shape(respValue), initialValues };
 };
-
 
 export const DecisionModalEdit = (prop: DecisionModalEditProps) => {
   const { decision, onCloseModal, onCancel, onSubmitEvent, portalId } = prop;
@@ -125,7 +134,8 @@ export const DecisionModalEdit = (prop: DecisionModalEditProps) => {
       updateDataDecision(prevDataDecision, "endDate", new Date(value))
     );
   };
-  const {validationSchema, initialValues} = ValueValidationSchema(DataDecision);
+  const { validationSchema, initialValues } =
+    ValueValidationSchema(DataDecision);
 
   const formik = useFormik({
     initialValues,
@@ -133,7 +143,6 @@ export const DecisionModalEdit = (prop: DecisionModalEditProps) => {
     validateOnChange: false,
     onSubmit: async () => true,
   });
-
 
   return (
     <RulesConfiguration

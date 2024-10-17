@@ -1,5 +1,6 @@
+import localforage from "localforage";
 import { stepsAddPosition } from "./config/addPosition.config";
-import { IFormAddPosition, IFormAddPositionRef } from "./types";
+import { IFormAddPosition, IFormAddPositionRef, IPosition } from "./types";
 
 const addPositionStepsRules = (
   currentStep: number,
@@ -12,7 +13,7 @@ const addPositionStepsRules = (
   };
 
   const stepKey = Object.entries(stepsAddPosition).find(
-    ([, config]) => config.id === currentStep
+    ([, config]) => config.number === currentStep
   )?.[0];
 
   if (!stepKey) return currentDataAddPositionLinixForm;
@@ -24,6 +25,39 @@ const addPositionStepsRules = (
   return (newDataAddPositionLinixForm = {
     ...newDataAddPositionLinixForm,
     [stepKey]: { isValid: isCurrentFormValid, values: values! },
+  });
+};
+
+export const saveLinixPositions = (addLinixPositions: IFormAddPosition) => {
+  const {
+    generalInformation: { values: generalInformation },
+    roles: { values: roles },
+  } = addLinixPositions;
+
+  const normalizeRoles = roles
+    .filter((rol) => rol.isActive === true)
+    .map((rol) => ({
+      k_Rol: rol.value,
+    }));
+
+  const newLinixPosition: IPosition = {
+    k_Grupo: "",
+    n_Grupo: generalInformation.abbreviatedName,
+    i_Activo: "Y",
+    n_Uso: generalInformation.nUso,
+    rolesPorCargo: normalizeRoles,
+    public_code: "",
+    abbreviated_name: "",
+  };
+  localforage.getItem("staff-positions").then((data) => {
+    if (data) {
+      localforage.setItem("staff-positions", [
+        ...(data as IFormAddPosition[]),
+        newLinixPosition,
+      ]);
+    } else {
+      localforage.setItem("staff-positions", [newLinixPosition]);
+    }
   });
 };
 

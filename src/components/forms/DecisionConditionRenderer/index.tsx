@@ -1,19 +1,22 @@
 import { TextValue } from "@config/components/feedback/DecisionModalEdit";
-import { InputRange } from "@src/components/inputs/InputRange";
-import { MultipleChoices } from "@src/components/inputs/MultipleChoices";
-import { SingleChoice } from "@src/components/inputs/SingleChoice";
+import { InputRange } from "@components/inputs/InputRange";
+import { MultipleChoices } from "@components/inputs/MultipleChoices";
+import { SingleChoice } from "@components/inputs/SingleChoice";
 import {
   ICondition,
   IDecision,
   IValue,
   ValueHowToSetUp,
 } from "@pages/rules/types";
-import { DynamicField } from "@src/components/inputs/DynamicField";
+import { DynamicField } from "@components/inputs/DynamicField";
 
 interface DecisionConditionRendererProps {
   element: IDecision | ICondition;
   onDecision: (value: IValue, nameCondition: string) => void;
-  valueData: string | number |  { rangeFrom?: number | undefined; rangeTo?: number | undefined };
+  valueData:
+    | string
+    | number
+    | { rangeFrom?: number | undefined; rangeTo?: number | undefined };
   message: string;
   status: string;
 }
@@ -25,7 +28,7 @@ export const DecisionConditionRenderer = (
   const name = element.name.replace(" ", ""),
     value = element.possibleValue,
     nameLabel = element.name.split(/(?=[A-Z])/).join(" ");
-    let valueRangeInput;
+  let valueRangeInput;
   switch (element.howToSetUp) {
     case ValueHowToSetUp.LIST_OF_VALUES:
       return (
@@ -79,7 +82,10 @@ export const DecisionConditionRenderer = (
         />
       );
     case ValueHowToSetUp.RANGE:
-      valueRangeInput = valueData as { rangeFrom?: number | undefined; rangeTo?: number | undefined };
+      valueRangeInput = valueData as {
+        rangeFrom?: number | undefined;
+        rangeTo?: number | undefined;
+      };
       return (
         <InputRange
           handleInputChangeFrom={(valueRange) => {

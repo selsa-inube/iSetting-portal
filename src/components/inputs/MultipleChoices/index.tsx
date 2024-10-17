@@ -13,9 +13,7 @@ interface MultipleChoicesProps {
   id: string;
   labelSelect: string;
   labelSelected: string;
-  onHandleSelectCheckChange: (
-    options: IOptionItemCheckedProps[]
-  ) => void;
+  onHandleSelectCheckChange: (options: IOptionItemCheckedProps[]) => void;
   options: IOptionItemCheckedProps[];
   placeholderSelect?: string;
   required?: boolean;
@@ -99,7 +97,7 @@ const MultipleChoices = (props: MultipleChoicesProps) => {
         name={id}
         onChangeCheck={onHandleSelectCheck}
         options={optionsSelect}
-        placeholder={ placeholderSelect }
+        placeholder={placeholderSelect}
         required={required}
         value=""
         size="compact"

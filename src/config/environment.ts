@@ -22,5 +22,17 @@ const isMobile580 = "(max-width: 580px)";
 const isMobile743 = "(max-width: 743px)";
 const isMobile849 = "(max-width: 849px)";
 const isMobile970 = "(max-width: 970px)";
+const isMobile450 = "(max-width: 450px)";
+const isMobile650 = "(max-width: 450px)";
+const isMobile740 = "(max-width: 740px)";
 
-export { environment, isMobile580, isMobile743, isMobile849, isMobile970 };
+export {
+  environment,
+  isMobile580,
+  isMobile743,
+  isMobile849,
+  isMobile970,
+  isMobile450,
+  isMobile650,
+  isMobile740,
+};

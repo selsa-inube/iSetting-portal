@@ -5,7 +5,7 @@ export const generalMessage = {
     id: 1,
     icon: <MdThumbUpOffAlt size={18} />,
     title: "Cambios guardados con éxito!",
-    description: "Hemos guardado los cambios correctamente",
+    description: "Hemos guardado los cambios correctamente ",
     appearance: "success",
   },
   failed: {

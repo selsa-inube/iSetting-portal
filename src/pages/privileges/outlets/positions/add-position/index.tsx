@@ -1,19 +1,26 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormikProps } from "formik";
+import { getAll } from "@mocks/utils/dataMock.service";
+import { IMessageState } from "@ptypes/forms.types";
+import { stepsAddPosition } from "./config/addPosition.config";
+
+import {
+  IFormAddPosition,
+  IFormAddPositionRef,
+  IHandleUpdateDataSwitchstep,
+  dataToAssignmentFormEntry,
+} from "./types";
+import { initalValuesPositions } from "./config/initialValues";
+import { addPositionStepsRules, saveLinixPositions } from "./utils";
+import { AddPositionUI } from "./interface";
+import { generalMessage } from "./config/messages.config";
 
 import { IGeneralInformationEntry } from "../components/GeneralInformationForm";
-import { stepsAddPosition } from "./config/addPosition.config";
-import { IFormAddPosition, IFormAddPositionRef } from "./types";
-import { initalValuesPositions } from "./config/initialValues";
-import { addPositionStepsRules } from "./utils";
-import { AddPositionUI } from "./interface";
-
-import { IMessageState } from "../../types/forms.types";
 
 export function AddPosition() {
   const [currentStep, setCurrentStep] = useState<number>(
-    stepsAddPosition.generalInformation.id
+    stepsAddPosition.generalInformation.number
   );
 
   const steps = Object.values(stepsAddPosition);
@@ -32,13 +39,75 @@ export function AddPosition() {
         isValid: false,
         values: initalValuesPositions.generalInformation,
       },
+      roles: {
+        isValid: false,
+        values: [],
+      },
+      application: {
+        isValid: false,
+        values: [],
+      },
     });
+
+  useEffect(() => {
+    getAll("staff-roles")
+      .then((data) => {
+        if (data !== null) {
+          setDataAddPositionLinixForm((prevFormData) => ({
+            ...prevFormData,
+            roles: {
+              isValid: true,
+              values: dataToAssignmentFormEntry({
+                dataOptions: data as Record<string, unknown>[],
+                idLabel: "k_Rol",
+                valueLabel: "n_Rol",
+                isActiveLabel: "",
+                k_uso: "k_Uso",
+              }),
+            },
+          }));
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching roles:", error.message);
+      });
+
+    getAll("staff-application")
+      .then((data) => {
+        if (data !== null) {
+          setDataAddPositionLinixForm((prevFormData: IFormAddPosition) => ({
+            ...prevFormData,
+            application: {
+              isValid: true,
+              values: dataToAssignmentFormEntry({
+                dataOptions: data as Record<string, unknown>[],
+                idLabel: "",
+                valueLabel: "",
+                isActiveLabel: "",
+                k_uso: "k_Uso",
+                n_uso: "n_Uso",
+              }),
+            },
+          }));
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching roles:", error.message);
+      });
+  }, []);
 
   const generalInformationRef =
     useRef<FormikProps<IGeneralInformationEntry>>(null);
 
   const formReferences: IFormAddPositionRef = {
     generalInformation: generalInformationRef,
+  };
+
+  const validateActiveRoles = () => {
+    const validateAct = dataAddPositionLinixForm.roles.values.some(
+      (x) => x.isActive === true
+    );
+    return currentStep === 2 && !validateAct;
   };
 
   const handleStepChange = (stepId: number) => {
@@ -52,7 +121,7 @@ export function AddPosition() {
     setDataAddPositionLinixForm(newAddPosition);
 
     const changeStepKey = Object.entries(stepsAddPosition).find(
-      ([, config]) => config.id === currentStep
+      ([, config]) => config.number === currentStep
     )?.[0];
 
     if (!changeStepKey) return;
@@ -84,6 +153,18 @@ export function AddPosition() {
     handleStepChange(currentStep - 1);
   };
 
+  function handleUpdateDataSwitchstep(values: IHandleUpdateDataSwitchstep) {
+    const stepKey = Object.entries(stepsAddPosition).find(
+      ([, config]) => config.number === currentStep
+    )?.[0];
+    if (stepKey) {
+      setDataAddPositionLinixForm({
+        ...dataAddPositionLinixForm,
+        [stepKey]: { values },
+      });
+    }
+  }
+
   const handleToggleModal = () => {
     setShowModal(!showModal);
     setLoading(true);
@@ -94,6 +175,15 @@ export function AddPosition() {
       visible: false,
     });
     navigate("/privileges/positions");
+  };
+
+  const handleFinishForm = () => {
+    saveLinixPositions(dataAddPositionLinixForm);
+    handleToggleModal();
+    setMessage({
+      visible: true,
+      data: generalMessage.success,
+    });
   };
 
   return (
@@ -109,9 +199,12 @@ export function AddPosition() {
       setIsCurrentFormValid={setIsCurrentFormValid}
       handleNextStep={handleNextStep}
       handlePreviousStep={handlePreviousStep}
+      handleUpdateDataSwitchstep={handleUpdateDataSwitchstep}
       setCurrentStep={setCurrentStep}
       handleToggleModal={handleToggleModal}
+      handleFinishForm={handleFinishForm}
       handleCloseSectionMessage={handleCloseSectionMessage}
+      validateActiveRoles={validateActiveRoles}
     />
   );
 }

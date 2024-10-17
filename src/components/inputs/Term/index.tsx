@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
-import { Datefield } from "@inubekit/datefield";
+import { Date } from "@inubekit/date";
 import { basic } from "@design/tokens";
 
 import { StyledInputCheckbox } from "./styles";
@@ -49,7 +49,11 @@ export const Term = (props: TermProps) => {
 
   return (
     <>
-      <Stack direction="row" justifyContent="space-between" margin={`${basic.spacing.s10} ${basic.spacing.s0}`}>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        margin={`${basic.spacing.s10} ${basic.spacing.s0}`}
+      >
         <Stack>
           <Text
             appearance="gray"
@@ -79,7 +83,7 @@ export const Term = (props: TermProps) => {
       </Stack>
       <Stack justifyContent="space-between" gap={basic.spacing.s24}>
         <Stack width="189px">
-          <Datefield
+          <Date
             id="dateStart"
             label={labelStart}
             onChange={onStartChange}
@@ -90,7 +94,7 @@ export const Term = (props: TermProps) => {
         </Stack>
         {checkClosed && (
           <Stack width="189px">
-            <Datefield
+            <Date
               id="dateEnd"
               label={labelEnd}
               onChange={onEndChange}

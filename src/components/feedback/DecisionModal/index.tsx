@@ -20,6 +20,7 @@ interface DecisionModalProps {
   loading?: boolean;
   closeModal: () => void;
   handleClick: () => void;
+  appearance?: string;
 }
 
 function DecisionModal(props: DecisionModalProps) {
@@ -61,12 +62,14 @@ function DecisionModal(props: DecisionModalProps) {
   }
 
   return createPortal(
-     <Blanket>
+    <Blanket>
       <StyledModal $smallScreen={smallScreen}>
         <Stack
           direction="column"
           gap={smallScreen ? `${basic.spacing.s16}` : `${basic.spacing.s24}`}
-          padding={smallScreen ? `${basic.spacing.s24}` : `${basic.spacing.s32}` }
+          padding={
+            smallScreen ? `${basic.spacing.s24}` : `${basic.spacing.s32}`
+          }
         >
           <Stack alignItems="center" justifyContent="space-between">
             <Text type="title" size={smallScreen ? "small" : "large"}>
@@ -101,7 +104,7 @@ function DecisionModal(props: DecisionModalProps) {
         </Stack>
       </StyledModal>
     </Blanket>,
-  node
+    node
   );
 }
 

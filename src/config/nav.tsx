@@ -1,4 +1,9 @@
-import { MdOutlineStart, MdVpnKey, MdOutlineSettings } from "react-icons/md";
+import {
+  MdOutlineStart,
+  MdVpnKey,
+  MdOutlineSettings,
+  MdLogout,
+} from "react-icons/md";
 
 import { INav } from "@components/layout/AppPage/types";
 
@@ -54,4 +59,13 @@ const logoutConfig = {
   logoutTitle: "Cerrar sesión",
 };
 
-export { appsConfig, nav, logoutConfig };
+const actions = [
+  {
+    id: "logout",
+    label: "Logout",
+    icon: <MdLogout />,
+    action: () => {},
+  },
+];
+
+export { appsConfig, nav, logoutConfig, actions };

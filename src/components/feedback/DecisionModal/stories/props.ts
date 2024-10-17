@@ -1,7 +1,7 @@
 import { inube } from "@inubekit/foundations";
 
 const excludedOptions = ["link"];
-const filteredOptions = Object.keys(inube.text).filter(
+const filteredOptions = Object.keys(inube.typography).filter(
   (option) => !excludedOptions.includes(option)
 );
 const props = {

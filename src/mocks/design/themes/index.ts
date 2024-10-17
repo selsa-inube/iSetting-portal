@@ -1,7 +1,7 @@
-import { inubepTheme } from "@mocks/design/themes/inubep/inubep"; 
+import { inubep } from "@mocks/design/themes/inubep";
 
-const inube = { 
-  inubepTheme,
-}; 
+const themes = {
+  inubep,
+};
 
-export { inube }; 
+export { themes };

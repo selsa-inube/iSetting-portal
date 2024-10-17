@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdOutlinePercent } from "react-icons/md";
 import { Icon } from "@inubekit/icon";
-import { Datefield } from "@inubekit/datefield";
+import { Date } from "@inubekit/date";
 import { ITextfieldStatus, Textfield } from "@inubekit/textfield";
 
 import { currencyFormat, parseCurrencyString } from "@utils/currency";
@@ -28,11 +28,22 @@ declare const inputTypes: readonly [
 ];
 
 export const DynamicField = (props: DynamicFieldProps) => {
-  const { type, name, label, valueInput, handleChange, messageValidate, statusValidate, onBlur } = props;
+  const {
+    type,
+    name,
+    label,
+    valueInput,
+    handleChange,
+    messageValidate,
+    statusValidate,
+    onBlur,
+  } = props;
 
   const [value, setValue] = useState(valueInput),
-        [status, setStatus] = useState<ITextfieldStatus>(statusValidate as ITextfieldStatus),
-        [message, setMessage] = useState<string>(messageValidate as string);
+    [status, setStatus] = useState<ITextfieldStatus>(
+      statusValidate as ITextfieldStatus
+    ),
+    [message, setMessage] = useState<string>(messageValidate as string);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const valueInput = e.target.value;
@@ -69,7 +80,7 @@ export const DynamicField = (props: DynamicFieldProps) => {
         />
       )}
       {type === "date" && (
-        <Datefield
+        <Date
           id={name}
           label={label}
           onChange={onChange}
@@ -114,7 +125,9 @@ export const DynamicField = (props: DynamicFieldProps) => {
           type="number"
           value={value}
           fullwidth
-          iconAfter={<Icon appearance="dark" icon={<MdOutlinePercent />} size="18px"/>}
+          iconAfter={
+            <Icon appearance="dark" icon={<MdOutlinePercent />} size="18px" />
+          }
           status={status}
           message={message}
           onBlur={onBlur}

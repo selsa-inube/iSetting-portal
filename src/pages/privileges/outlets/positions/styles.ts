@@ -1,3 +1,4 @@
+import { basic } from "@design/tokens";
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
@@ -6,6 +7,6 @@ export const StyledContainer = styled.div`
 
 export const StyledButtonWrapper = styled.div`
   & > a > button > div {
-    gap: 8px;
+    gap: ${basic.spacing.s8};
   }
 `;

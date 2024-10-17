@@ -3,18 +3,21 @@ import { Icon } from "@inubekit/icon";
 
 export const stepsAddPosition = {
   generalInformation: {
-    id: 1,
-    label: "Información general",
+    id: "general",
+    number: 1,
+    name: "Información general",
     description: "Por favor completa la información general.",
   },
   roles: {
-    id: 2,
-    label: "Selección de roles",
+    id: "roles",
+    number: 2,
+    name: "Selección de roles",
     description: "Selecciona los roles que necesites.",
   },
   summary: {
-    id: 3,
-    label: "Verificación",
+    id: "verification",
+    number: 3,
+    name: "Verificación",
     description:
       "Verifica las opciones activadas, si es necesario cámbialas o por el contrario si todo está correcto dale enviar.",
     isVerification: true,
