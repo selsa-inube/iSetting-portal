@@ -1,42 +1,42 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@utils/*": ["src/utils/*"],
-      "@ptypes/*": ["src/types/*"],
-      "@mocks/*": ["src/mocks/*"],
-      "@context/*": ["src/context/*"],
-      "@pages/*": ["src/pages/*"],
-      "@assets/*": ["src/assets/*"],
-      "@services/*": ["src/services/*"],
-      "@config/*": ["./src/config/*"],
-      "@design/*": ["src/design/*"],
-      "@validations/*": ["src/validations/*"],
-      "@routes/*": ["src/routes/*"]
-    },
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "baseUrl": ".",
+    "paths": {
+      "@design/*": ["./src/design/*"],
+      "@components/*": ["./src/components/*"],
+      "@context/*": ["./src/context/*"],
+      "@config/*": ["./src/config/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@ptypes/*": ["./src/types/*"],
+      "@forms/*": ["./src/shared/forms/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@services/*": ["./src/services/*"],
+      "@validations/*": ["src/validations/*"],
+      "@shared/*": ["./src/shared/*"],
+    },
+    "types": ["vite/client"]
   },
-  "include": ["src"],
+
+  "include": ["src", "./manifest.ts", "vite-env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

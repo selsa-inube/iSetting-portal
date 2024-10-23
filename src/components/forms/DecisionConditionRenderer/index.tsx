@@ -1,14 +1,14 @@
 import { TextValue } from "@config/components/feedback/DecisionModalEdit";
-import { InputRange } from "@src/components/inputs/InputRange";
-import { MultipleChoices } from "@src/components/inputs/MultipleChoices";
-import { SingleChoice } from "@src/components/inputs/SingleChoice";
+import { InputRange } from "@components/inputs/InputRange";
+import { MultipleChoices } from "@components/inputs/MultipleChoices";
+import { SingleChoice } from "@components/inputs/SingleChoice";
 import {
   ICondition,
   IDecision,
   IValue,
   ValueHowToSetUp,
 } from "@pages/rules/types";
-import { DynamicField } from "@src/components/inputs/DynamicField";
+import { DynamicField } from "@components/inputs/DynamicField";
 
 interface DecisionConditionRendererProps {
   element: IDecision | ICondition;

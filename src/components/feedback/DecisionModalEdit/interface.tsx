@@ -10,7 +10,7 @@ import { TextValue } from "@config/components/feedback/DecisionModalEdit";
 import { ReasonForChange } from "@components/inputs/ReasonForChange";
 import { Term } from "@components/inputs/Term";
 import { ToggleOption } from "@components/inputs/ToggleOption";
-import { DecisionConditionRenderer } from "@src/components/forms/DecisionConditionRenderer";
+import { DecisionConditionRenderer } from "@components/forms/DecisionConditionRenderer";
 import { basic } from "@design/tokens";
 import { IRuleDecision, IValue } from "@pages/rules/types";
 

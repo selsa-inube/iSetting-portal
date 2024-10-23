@@ -8,8 +8,8 @@ import {
   IRuleDecision,
   IValue,
   ValueHowToSetUp,
-} from "@src/pages/rules/types";
-import { RulesConfiguration } from "@src/components/modals/RulesConfiguration";
+} from "@pages/rules/types";
+import { RulesConfiguration } from "@components/modals/RulesConfiguration";
 import { DecisionModalEditUI } from "./interface";
 
 export interface DecisionModalEditProps {

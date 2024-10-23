@@ -11,7 +11,7 @@ import { ErrorPage } from "@components/layout/ErrorPage";
 import { AppPage } from "@components/layout/AppPage";
 import { theme } from "@config/theme";
 import { useAuth0 } from "@auth0/auth0-react";
-import { initializeDataDB } from "@mocks/utils/inicializeDataDB";
+// import { initializeDataDB } from "@mocks/utils/inicializeDataDB";
 import { environment } from "@config/environment";
 import { PrivilegesRoutes } from "@routes/privileges";
 import { RulesRoutes } from "@routes/rules";
@@ -40,10 +40,21 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  useEffect(() => {
-    initializeDataDB();
-  }, []);
 
+  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      loginWithRedirect();
+    }
+  }, [isLoading, isAuthenticated, loginWithRedirect]);
+
+  if (!isAuthenticated) {
+    return null;
+  }
+  // useEffect(() => {
+  //   initializeDataDB();
+  // }, []);
   return (
     <>
       <GlobalStyles />

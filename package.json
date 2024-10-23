@@ -10,9 +10,11 @@
     "preview": "vite preview",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "auto": "auto"
   },
   "dependencies": {
+    "@inube/auth": "^1.0.17",
     "@auth0/auth0-react": "^2.2.4",
     "@inube/design-system": "^5.15.0",
     "@inubekit/assisted": "^4.19.0",
