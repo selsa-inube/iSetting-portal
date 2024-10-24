@@ -1,7 +1,7 @@
-import { inube } from "@inubekit/foundations";
+import { TextTokens } from "@inubekit/text";
 
 const excludedOptions = ["link"];
-const filteredOptions = Object.keys(inube.text).filter(
+const filteredOptions = Object.keys(TextTokens).filter(
   (option) => !excludedOptions.includes(option)
 );
 const props = {

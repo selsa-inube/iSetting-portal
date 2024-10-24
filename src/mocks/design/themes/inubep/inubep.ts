@@ -98,55 +98,27 @@ const palette = {
 };
 
 const inubepTheme = {
-  assisted: {
+ assisted: {
     title: {
-      appearance: {
-        Value: "",
-        Reference: "inubep.assisted.title.appearance",
-        Token: "dark",
-      },
+      appearance: "dark",
     },
     description: {
-      appearance: {
-        Value: "",
-        Reference: "inubep.assisted.description.appearance",
-        Token: "gray",
-      },
+      appearance: "gray",
     },
     track: {
-      color: {
-        Value: "",
-        Reference: "inubep.assisted.track.color",
-        Token: "inubep.palette.neutral.n30",
-      },
+      color: palette.neutral.n30,
     },
     bar: {
-      color: {
-        Value: "",
-        Reference: "inubep.assisted.bar.color",
-        Token: "inubep.palette.blue.b400",
-      },
+      color: palette.blue.b400,
     },
     background: {
-      color: {
-        Value: "",
-        Reference: "inubep.assisted.background.color",
-        Token: "inubep.palette.neutral.n10",
-      },
+      color: palette.neutral.n10,
     },
     button: {
-      appearance: {
-        Value: "",
-        Reference: "inubep.assisted.button.appearance",
-        Token: "primary",
-      },
+      appearance: "primary",
     },
     step: {
-      color: {
-        Value: "",
-        Reference: "inubep.assisted.step.color",
-        Token: "inubep.palette.blue.b400",
-      },
+      color: palette.blue.b400,
     },
   },
   breadcrumbs: {

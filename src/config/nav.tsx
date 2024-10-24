@@ -42,7 +42,7 @@ const nav: INav = {
           id: "rules",
           label: "Reglas",
           icon: <MdOutlineSettings />,
-          path: "/rules/options",
+          path: "/rules",
         },
       },
     },

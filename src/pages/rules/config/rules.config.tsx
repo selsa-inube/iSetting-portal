@@ -6,7 +6,7 @@ const rulesOptionsConfig = [
     icon: <MdOutlineBusinessCenter />,
     label: "Creditos",
     description: "Reglas de negocios para la gestión de créditos",
-    url: "/rules/creditos",
+    url: "/rules/positions",
     domain: "rules",
     crumbs: [
       {
@@ -23,7 +23,7 @@ const rulesOptionsConfig = [
       },
       {
         path: "/rules/positions",
-        label: "Cargos",
+        label: "Creditos",
         id: "/rules/positions",
         isActive: true,
       },

@@ -5,11 +5,11 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { useEffect } from "react";
-import { ThemeProvider } from "styled-components";
+// import { ThemeProvider } from "styled-components";
 
 import { ErrorPage } from "@components/layout/ErrorPage";
 import { AppPage } from "@components/layout/AppPage";
-import { theme } from "@config/theme";
+// import { theme } from "@config/theme";
 import { useAuth0 } from "@auth0/auth0-react";
 import { initializeDataDB } from "@mocks/utils/inicializeDataDB";
 import { environment } from "@config/environment";
@@ -47,9 +47,9 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <RouterProvider router={router} />
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 }
