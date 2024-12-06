@@ -13,7 +13,7 @@ import { RulesRoutes } from "@routes/rules";
 import { usePortalData } from "@hooks/usePortalData";
 import { useBusinessManagers } from "@hooks/useBusinessManagers";
 import { useAuthRedirect } from "@hooks/useAuthRedirect";
-
+import { Home } from "@pages/home";
 import { AppContext, AppContextProvider } from "@context/AppContext";
 import { SelectBusinessUnits } from "@pages/selectBusinessUnits";
 import { SelectBusinessUnitsRoutes } from "@routes/selectBusinessunits";
@@ -25,11 +25,11 @@ function LogOut() {
   localStorage.clear();
   const { logout } = useAuth0();
   logout({ logoutParams: { returnTo: redirect_uri } });
-  return <AppPage />;
+  return <Home />;
 }
 function FirstPage() {
   const { businessUnitSigla } = useContext(AppContext);
-  return businessUnitSigla.length === 0 ? <SelectBusinessUnits /> : <AppPage />;
+  return businessUnitSigla.length === 0 ? <SelectBusinessUnits /> : <Home />;
 }
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,8 +38,8 @@ const router = createBrowserRouter(
         path="selectBusinessUnit/*"
         element={<SelectBusinessUnitsRoutes />}
       />
-      <Route path="/" element={<FirstPage />} errorElement={<ErrorPage />}>
-        <Route path="/" element={<PrivilegesRoutes />} />
+      <Route path="/" element={<FirstPage />} errorElement={<ErrorPage />} />
+      <Route path="/" element={<AppPage />}>
         <Route path="privileges/*" element={<PrivilegesRoutes />} />
         <Route path="rules/*" element={<RulesRoutes />} />
       </Route>

@@ -1,14 +1,16 @@
-import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { ErrorPage } from "@components/layout/ErrorPage";
 import clientNotFound from "@assets/images/Expired.png";
 import { enviroment } from "@config/environment";
+import useClearLocalStorageOnMount from "@hooks/useClearLocalStorageOnMount";
 
 function ErrorNotBusinessUnit() {
   const { logout } = useAuth0();
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
+  useClearLocalStorageOnMount();
+
+  const handleLogout = () => {
+    logout({ logoutParams: { returnTo: enviroment.REDIRECT_URI } });
+  };
 
   return (
     <ErrorPage
@@ -16,9 +18,7 @@ function ErrorNotBusinessUnit() {
       imageAlt="Unidad de negocio no encontrada"
       heading="No hay resultados..."
       description="Su usuario no tiene unidades de negocio relacionados, consulte con su administrador."
-      onClick={() => {
-        logout({ logoutParams: { returnTo: enviroment.REDIRECT_URI } });
-      }}
+      onClick={handleLogout}
     />
   );
 }

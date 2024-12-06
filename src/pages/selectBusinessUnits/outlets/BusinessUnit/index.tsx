@@ -1,67 +1,22 @@
-import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "@context/AppContext";
-import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortalBusiness.types";
 import { BusinessUnitsUI } from "./interface";
-import { IBusinessUnitstate } from "./types";
+import { useBusinessUnit } from "@hooks/useBusinessUnits";
+import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortalBusiness.types";
 
 interface BusinessUnitsProps {
   businessUnits: IBusinessUnitsPortalStaff[];
 }
 
-function BusinessUnits(props: BusinessUnitsProps) {
-  const { businessUnits } = props;
-  const { setBusinessUnitSigla } = useContext(AppContext);
-  const [search, setSearch] = useState("");
-  const [selectedBusinessUnit, setSelectedBusinessUnit] =
-    useState<IBusinessUnitsPortalStaff>();
-  const [businessUnitLocal, setBusinessUnitLocal] =
-    useState<IBusinessUnitstate>({
-      ref: null,
-      value: true,
-    });
+function BusinessUnits({ businessUnits }: BusinessUnitsProps) {
   const navigate = useNavigate();
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (businessUnitLocal.ref) {
-      businessUnitLocal.ref.checked = false;
-    }
-    setBusinessUnitLocal({ ref: null, value: true });
-    setSearch(event.target.value);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBusinessUnitLocal({ ref: event.target, value: false });
-    const selectOption = businessUnits.find(
-      (businessUnit0) => businessUnit0.abbreviatedName === event.target.value,
-    );
-    setSelectedBusinessUnit(selectOption);
-  };
-
-  const handleSubmit = () => {
-    if (selectedBusinessUnit) {
-      const selectJSON = JSON.stringify(selectedBusinessUnit);
-      setBusinessUnitSigla(selectJSON);
-    }
-    navigate("/selectBusinessUnit/loading-app");
-  };
-
-  function filterBusinessUnits(
-    businessUnits: IBusinessUnitsPortalStaff[],
-    search: string,
-  ) {
-    const searchTerm = search?.toUpperCase();
-
-    return businessUnits.filter((unit) => {
-      const businessUnitName = unit?.abbreviatedName?.toUpperCase() || "";
-      const businessUnitSigla = unit?.publicCode?.toUpperCase() || "";
-
-      return (
-        businessUnitName.includes(searchTerm) ||
-        businessUnitSigla.includes(searchTerm)
-      );
-    });
-  }
+  const {
+    search,
+    businessUnitLocal,
+    handleSearchChange,
+    handleChange,
+    handleSubmit,
+    filterBusinessUnits,
+  } = useBusinessUnit(businessUnits);
 
   return (
     <BusinessUnitsUI
@@ -71,7 +26,7 @@ function BusinessUnits(props: BusinessUnitsProps) {
       handleSearchChange={handleSearchChange}
       handleBussinessUnitChange={handleChange}
       filterBusinessUnits={filterBusinessUnits}
-      handleSubmit={handleSubmit}
+      handleSubmit={() => handleSubmit(navigate)}
     />
   );
 }

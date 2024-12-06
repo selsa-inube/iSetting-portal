@@ -1,27 +1,23 @@
+interface ISection {
+  title: string;
+  links: ILink[];
+}
 
-  interface ISection {
-    title: string;
-    links: ILink[];
-  }
+interface ILink {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  path: string;
+}
 
-  interface ILink {
-    id: string;
-    label: string;
-    icon: React.ReactNode;
-    path: string;
-  }
-  
-  interface INavSection {
-    name: string;
-    links: { [key: string]: ILink };
-  }
-  
-  interface INav {
-    title: string;
-    sections: { [key: string]: INavSection };
-  }
+interface INavSection {
+  name: string;
+  links: { [key: string]: ILink };
+}
 
-  export type{
-    INav,
-    ISection
-  }
+interface INav {
+  title: string;
+  sections: { [key: string]: INavSection };
+}
+
+export type { INav, ISection };

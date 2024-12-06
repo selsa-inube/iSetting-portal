@@ -8,7 +8,7 @@ import { isMobile849 } from "@config/environment";
 import { LogoutModal } from "@components/feedback/LogoutModal";
 import { nav, logoutConfig } from "@config/nav";
 import linparLogo from "@assets/images/linpar.png";
-
+import { AppContext } from "@context/AppContext";
 import {
   StyledAppPage,
   StyledContainer,
@@ -20,7 +20,6 @@ import {
 } from "./styles";
 
 import { userMenu } from "./config/apps.config";
-import { AppContext } from "@context/AppContext";
 
 const renderLogo = (imgUrl: string) => {
   return (
@@ -96,7 +95,7 @@ function AppPage() {
             {!smallScreen && (
               <StyledContainerNav>
                 <Nav
-                  navigation={nav}
+                  navigation={nav.items}
                   logoutPath={logoutConfig.logoutPath}
                   logoutTitle={logoutConfig.logoutTitle}
                 />
