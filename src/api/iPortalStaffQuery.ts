@@ -5,6 +5,7 @@ import {
   maxRetriesServices,
 } from "@config/environment";
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortalBusiness.types";
+import { IBusinessUnitsPortalStaffId } from "@ptypes/staffBusinessManagersId";
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: enviroment.IVITE_IPORTAL_STAFF_QUERY_PROCESS_SERVICE,
@@ -66,4 +67,21 @@ const getBusinessUnitsPortalStaff = async (
   );
 };
 
-export { getBusinessUnitsPortalStaff };
+const getBusinessManagersId = async (
+  publiCode: string
+): Promise<IBusinessUnitsPortalStaffId[]> => {
+  const queryParams = new URLSearchParams({
+    publiCode: publiCode,
+  });
+  const config: AxiosRequestConfig = {
+    headers: {
+      "X-Action": "SearchAllBusinessManagerIportalStaff",
+    },
+  };
+  return fetchWithRetries<IBusinessUnitsPortalStaffId[]>(
+    `/staffs?${queryParams.toString()}`,
+    config
+  );
+};
+
+export { getBusinessUnitsPortalStaff, getBusinessManagersId };

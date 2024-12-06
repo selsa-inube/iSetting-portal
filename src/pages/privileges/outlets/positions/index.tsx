@@ -1,34 +1,16 @@
-import { useEffect, useState } from "react";
-import { getAll } from "@mocks/utils/dataMock.service";
-
+import { useContext, useState } from "react";
+import { useBusinessManagersId } from "@hooks/useBusinessManageresId";
+import { AppContext } from "@context/AppContext";
 import { PositionsUI } from "./interface";
-import { IPosition } from "./add-position/types";
 
 export function Positions() {
   const [searchPosition, setSearchPosition] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading] = useState<boolean>(false);
 
-  const [positions, setPositions] = useState<IPosition[]>([]);
-
-  useEffect(() => {
-    getAll("staff-positions")
-      .then((data) => {
-        setLoading(true);
-        if (Array.isArray(data)) {
-          setPositions(data as IPosition[]);
-        } else {
-          console.error("Data fetched is not an array:", data);
-          setPositions([]);
-        }
-      })
-      .catch((error) => {
-        console.info(error.message);
-        setPositions([]);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  const { appData } = useContext(AppContext);
+  const { businessManagersData } = useBusinessManagersId(
+    appData.businessManager.publicCode
+  );
 
   const handleSearchPositions = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchPosition(e.target.value);
@@ -38,7 +20,7 @@ export function Positions() {
       handleSearchPositions={handleSearchPositions}
       searchPosition={searchPosition}
       loading={loading}
-      data={positions}
+      data={businessManagersData}
     />
   );
 }

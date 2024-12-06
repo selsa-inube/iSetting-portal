@@ -2,6 +2,7 @@ const IS_PRODUCTION = import.meta.env.PROD;
 const AUTH_REDIRECT_URI = import.meta.env.VITE_AUTH0_REDIRECT_URI;
 const maxRetriesServices = 5;
 const fetchTimeoutServices = 3000;
+const mediaQueryMobile = "(max-width: 770px)";
 const secretKeyPortalId =
   "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
 const enviroment = {
@@ -39,4 +40,5 @@ export {
   maxRetriesServices,
   fetchTimeoutServices,
   secretKeyPortalId,
+  mediaQueryMobile,
 };

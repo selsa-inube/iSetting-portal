@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
-import { IPosition } from "../../add-position/types";
+import { IBusinessUnitsPortalStaffId } from "@ptypes/staffBusinessManagersId";
 const usePagination = (
   searchPosition: string,
-  data: IPosition[] = [],
+  data: IBusinessUnitsPortalStaffId[],
   pagerecord: number
 ) => {
   const pageLength = pagerecord;

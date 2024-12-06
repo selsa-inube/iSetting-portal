@@ -4,6 +4,7 @@ import {
   IBusinessManagers,
   IStaffPortalByBusinessManager,
 } from "@ptypes/staffPortal.types";
+import { initializeDataDB } from "@mocks/utils/inicializeDataDB";
 
 const useAuthRedirect = (
   portalPublicCode: IStaffPortalByBusinessManager,
@@ -20,6 +21,7 @@ const useAuthRedirect = (
     if (portalPublicCode.abbreviatedName) {
       if (businessManagersData && !isLoading && !isAuthenticated) {
         loginWithRedirect();
+        initializeDataDB();
       } else if (isAuthenticated) {
         setHasRedirected(true);
       } else {

@@ -1,4 +1,4 @@
-import { MdOutlineBusinessCenter, MdVpnKey  } from "react-icons/md";
+import { MdOutlineBusinessCenter, MdVpnKey } from "react-icons/md";
 
 const rulesOptionsConfig = [
   {
@@ -48,11 +48,11 @@ const appsConfig = [
         id: "/rules",
         isActive: true,
         label: "Reglas de Negocios",
-        path: "/rules/options",
+        path: "/rules",
       },
     ],
     url: "/rules",
-  },  
+  },
 ];
 
 export { rulesOptionsConfig, appsConfig };

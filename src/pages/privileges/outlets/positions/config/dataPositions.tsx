@@ -7,7 +7,7 @@ import { IActions, IAction } from "../types";
 
 export const titlesOptions = [
   {
-    id: "abbreviated_name",
+    id: "abbreviatedName",
     titleName: "Cargos",
     action: false,
     priority: 1,

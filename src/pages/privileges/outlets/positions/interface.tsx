@@ -23,10 +23,9 @@ import { PageTitle } from "@components/PageTitle";
 import { basic } from "@design/tokens";
 import { isMobile580 } from "@config/environment";
 import { LoadingApp } from "@pages/login/outlets/LoadingApp";
-
+import { IBusinessUnitsPortalStaffId } from "@ptypes/staffBusinessManagersId";
 import { privilegeOptionsConfig } from "../../config/privileges.config";
 import { titlesOptions, actions } from "./config/dataPositions";
-import { IPosition } from "./add-position/types";
 import { IActions, IAction } from "./types";
 import { usePagination } from "./components/GeneralInformationForm/utils";
 import { StyledButtonWrapper } from "./styles";
@@ -36,7 +35,7 @@ const pagerecord = 10;
 interface IPositionsProps {
   handleSearchPositions: (e: React.ChangeEvent<HTMLInputElement>) => void;
   searchPosition: string;
-  data: IPosition[];
+  data: IBusinessUnitsPortalStaffId[];
   loading: boolean;
 }
 
