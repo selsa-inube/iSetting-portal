@@ -3,21 +3,19 @@ import { useNavigate } from "react-router-dom";
 
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
-import { Icon} from "@inubekit/icon";
-import { useMediaQuery} from "@inubekit/hooks";
+import { Icon } from "@inubekit/icon";
+import { useMediaQuery } from "@inubekit/hooks";
 import { isMobile580 } from "@config/environment";
 import { basic } from "@design/tokens";
 
-interface PageTitleProps {
+interface IPageTitle {
   title: string;
   icon?: React.ReactNode;
   description: string;
   navigatePage?: string;
 }
 
-function PageTitle(props: PageTitleProps) {
-  const { title, icon, description, navigatePage } = props;
-
+const PageTitle = ({ title, icon, description, navigatePage }: IPageTitle) => {
   const smallScreen = useMediaQuery(isMobile580);
   const navigate = useNavigate();
 
@@ -55,7 +53,7 @@ function PageTitle(props: PageTitleProps) {
       </Stack>
     </>
   );
-}
+};
 
 export { PageTitle };
-export type { PageTitleProps };
+export type { IPageTitle };

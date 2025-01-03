@@ -18,8 +18,6 @@ const meta: Meta<typeof SelectCheck> = {
   argTypes: props,
 };
 
-export default meta;
-
 const Default: Story = {
   args: {
     name: "SelectCheck",
@@ -39,3 +37,4 @@ const Default: Story = {
 };
 
 export { Default };
+export default meta;

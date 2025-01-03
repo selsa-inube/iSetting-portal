@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { OptionItemChecked } from "@components/SelectCheck/OptionItem";
 import { parameters, props } from "./props";
 import { OptionList } from "..";
-import { OptionItemChecked } from "@components/SelectCheck/OptionItem";
 
 type Story = StoryObj<typeof OptionList>;
 
@@ -18,9 +18,7 @@ const meta: Meta<typeof OptionList> = {
   argTypes: props,
 };
 
-export default meta;
-
-export const Default: Story = {
+const Default: Story = {
   args: {
     children: options.map((optionItem) => (
       <OptionItemChecked
@@ -32,3 +30,6 @@ export const Default: Story = {
     )),
   },
 };
+
+export { Default };
+export default meta;

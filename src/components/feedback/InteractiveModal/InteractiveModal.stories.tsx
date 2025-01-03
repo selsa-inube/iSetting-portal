@@ -19,7 +19,7 @@ const data = {
   status: "Sent",
 };
 
-export const Default = (args: InteractiveModalProps) => {
+const Default = (args: InteractiveModalProps) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -39,5 +39,5 @@ Default.args = {
   infoTitle: "Información",
   actionsTitle: "Acciones",
 };
-
+export { Default };
 export default story;

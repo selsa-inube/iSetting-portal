@@ -1,77 +1,80 @@
 import { MdClose } from "react-icons/md";
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Button } from "@inubekit/button";
-  import { Blanket } from "@inubekit/blanket";
-  import { Stack } from "@inubekit/stack";
-  import { Text } from "@inubekit/text";
-  import { Icon } from "@inubekit/icon";
-  import { useMediaQuery } from "@inubekit/hooks";
-  import { isMobile743 } from "@config/environment";
-  import { basic } from "@design/tokens";
+import { Blanket } from "@inubekit/blanket";
+import { Stack } from "@inubekit/stack";
+import { Text } from "@inubekit/text";
+import { Icon } from "@inubekit/icon";
+import { useMediaQuery } from "@inubekit/hooks";
+import { isMobile743 } from "@config/environment";
+import { basic } from "@design/tokens";
 
-  import { StyledBackdropBlanket, StyledModal } from "./styles";
+import { StyledBackdropBlanket, StyledModal } from "./styles";
 
-  interface ILogoutModalProps {
-    handleShowBlanket: () => void;
-    logoutPath: string;
-  }
-  
-  function LogoutModal(props: ILogoutModalProps) {
-    const { logoutPath, handleShowBlanket } = props;
-    const smallScreen = useMediaQuery(isMobile743);
-  
-    return (
-      <StyledBackdropBlanket>
-        <Blanket>
-          <StyledModal $smallScreen={smallScreen}>
-            <Stack direction="column" gap={basic.spacing.s24} padding={basic.spacing.s24}>
-              <Stack direction="column" gap={basic.spacing.s24}>
-                <Stack direction="row" justifyContent="space-between">
-                  <Text
-                    type="title"
-                    size={smallScreen ? "small" : "medium"}
-                    appearance="dark"
-                  >
-                    Cerrar sesión
-                  </Text>
-                  <Icon
-                    appearance="dark"
-                    icon={<MdClose />}
-                    size={smallScreen ? "20px" : "24px"}
-                    onClick={handleShowBlanket}
-                  />
-                </Stack>
-  
-                <Text size={smallScreen ? "small" : "large"} appearance="gray">
-                  ¿Realmente quieres cerrar sesión?
+interface ILogoutModal {
+  handleShowBlanket: () => void;
+  logoutPath: string;
+}
+
+const LogoutModal = (props: ILogoutModal) => {
+  const { logoutPath, handleShowBlanket } = props;
+  const smallScreen = useMediaQuery(isMobile743);
+
+  return (
+    <StyledBackdropBlanket>
+      <Blanket>
+        <StyledModal $smallScreen={smallScreen}>
+          <Stack
+            direction="column"
+            gap={basic.spacing.s24}
+            padding={basic.spacing.s24}
+          >
+            <Stack direction="column" gap={basic.spacing.s24}>
+              <Stack direction="row" justifyContent="space-between">
+                <Text
+                  type="title"
+                  size={smallScreen ? "small" : "medium"}
+                  appearance="dark"
+                >
+                  Cerrar sesión
                 </Text>
+                <Icon
+                  appearance="dark"
+                  icon={<MdClose />}
+                  size={smallScreen ? "20px" : "24px"}
+                  onClick={handleShowBlanket}
+                />
               </Stack>
-              <Stack justifyContent="flex-end" gap={basic.spacing.s8}>
+
+              <Text size={smallScreen ? "small" : "large"} appearance="gray">
+                ¿Realmente quieres cerrar sesión?
+              </Text>
+            </Stack>
+            <Stack justifyContent="flex-end" gap={basic.spacing.s8}>
+              <Button
+                appearance="gray"
+                spacing={smallScreen ? "compact" : "wide"}
+                onClick={handleShowBlanket}
+              >
+                Cancelar
+              </Button>
+              <Link to={logoutPath}>
                 <Button
-                  appearance="gray"
+                  appearance="primary"
                   spacing={smallScreen ? "compact" : "wide"}
                   onClick={handleShowBlanket}
                 >
-                  Cancelar
+                  Cerrar sesión
                 </Button>
-                <Link to={logoutPath}>
-                  <Button
-                    appearance="primary"
-                    spacing={smallScreen ? "compact" : "wide"}
-                    onClick={handleShowBlanket}
-                  >
-                    Cerrar sesión
-                  </Button>
-                </Link>
-              </Stack>
+              </Link>
             </Stack>
-          </StyledModal>
-        </Blanket>
-      </StyledBackdropBlanket>
-    );
-  }
-  
-  export { LogoutModal };
-  export type { ILogoutModalProps };
-  
+          </Stack>
+        </StyledModal>
+      </Blanket>
+    </StyledBackdropBlanket>
+  );
+};
+
+export { LogoutModal };
+export type { ILogoutModal };

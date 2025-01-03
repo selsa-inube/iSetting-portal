@@ -3,7 +3,7 @@ import CryptoJS from "crypto-js";
 const secretKey = CryptoJS.enc.Hex.parse(secretKeyPortalId);
 const iv = CryptoJS.enc.Hex.parse("abcdef9876543210abcdef9876543210");
 
-export const encrypt = (data: string): string => {
+const encrypt = (data: string): string => {
   try {
     const encrypted = CryptoJS.AES.encrypt(data, secretKey, { iv });
     if (encrypted) {
@@ -18,7 +18,7 @@ export const encrypt = (data: string): string => {
   }
 };
 
-export const decrypt = (data: string) => {
+const decrypt = (data: string) => {
   try {
     if (!data) return "";
     const bytes = CryptoJS.AES.decrypt(data, secretKey, { iv: iv });
@@ -28,3 +28,5 @@ export const decrypt = (data: string) => {
     return "";
   }
 };
+
+export { encrypt, decrypt };

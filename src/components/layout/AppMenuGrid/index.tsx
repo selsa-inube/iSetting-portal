@@ -2,14 +2,14 @@ import { AppMenuCard } from "@components/cards/AppMenuCard/index";
 import { Grid } from "@inubekit/grid";
 import { useMediaQuery } from "@inubekit/hooks";
 import { isMobile580 } from "@config/environment";
-import { AppMenuCardProps } from "@components/cards/AppMenuCard";
+import { IAppMenuCard } from "@components/cards/AppMenuCard";
 import { basic } from "@design/tokens";
 
-interface AppMenuGridProps {
-  appOptions: AppMenuCardProps[];
+interface IAppMenuGrid {
+  appOptions: IAppMenuCard[];
 }
 
-function AppMenuGrid(props: AppMenuGridProps) {
+const AppMenuGrid = (props: IAppMenuGrid) => {
   const { appOptions } = props;
 
   const screenMovil = useMediaQuery(isMobile580);
@@ -35,7 +35,7 @@ function AppMenuGrid(props: AppMenuGridProps) {
       ))}
     </Grid>
   );
-}
+};
 
 export { AppMenuGrid };
-export type { AppMenuGridProps };
+export type { IAppMenuGrid };

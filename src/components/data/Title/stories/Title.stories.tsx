@@ -17,16 +17,16 @@ const meta: Meta<typeof Title> = {
 
 const Template: StoryFn<ITitle> = (args) => <Title {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   title: "Title",
 };
 
-export const WithCustomIcon = Template.bind({});
+const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
   title: "Title",
   icon: <MdDoorBack />,
   navigatePage: "/",
 };
-
+export { WithCustomIcon, Default };
 export default meta;

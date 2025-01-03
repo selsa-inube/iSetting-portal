@@ -18,12 +18,12 @@ const meta: Meta<typeof AppCard> = {
 
 const Template: StoryFn<IAppCard> = (args) => <AppCard {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   label: "Card Title",
   description: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   icon: <MdContacts />,
   url: "/privileges",
 };
-
+export { Default };
 export default meta;

@@ -15,18 +15,16 @@ interface IFormButtons {
   submitButtonText?: string;
 }
 
-function FormButtons(props: IFormButtons) {
-  const {
-    handleSubmit,
-    handleReset,
-    cancelButtonText = "Cancelar",
-    children,
-    withDisabledButtons,
-    withDisableReset,
-    loading,
-    submitButtonText = "Guardar",
-  } = props;
-
+const FormButtons = ({
+  handleSubmit,
+  handleReset,
+  cancelButtonText = "Cancelar",
+  children,
+  withDisabledButtons,
+  withDisableReset,
+  loading,
+  submitButtonText = "Guardar",
+}: IFormButtons) => {
   let disableCancel: boolean | undefined;
 
   if (withDisableReset === undefined || withDisableReset === null) {
@@ -63,7 +61,7 @@ function FormButtons(props: IFormButtons) {
       </Stack>
     </Stack>
   );
-}
+};
 
 export { FormButtons };
 export type { IFormButtons };

@@ -30,7 +30,7 @@ const renderLogo = (imgUrl: string) => {
   );
 };
 
-function AppPage() {
+const AppPage = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -112,6 +112,6 @@ function AppPage() {
       </Grid>
     </StyledAppPage>
   );
-}
+};
 
 export { AppPage };

@@ -1,18 +1,16 @@
 import { StoryFn, Meta } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
-import { DecisionModal, DecisionModalProps } from "..";
+import { DecisionModal, IDecisionModal } from "..";
 
 const story: Meta<typeof DecisionModal> = {
   component: DecisionModal,
   title: "components/feedback/DecisionModal",
 };
 
-const Template: StoryFn<DecisionModalProps> = (args) => (
-  <DecisionModal {...args} />
-);
+const Template: StoryFn<IDecisionModal> = (args) => <DecisionModal {...args} />;
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   portalId: "portal",
   title: "Text title",
@@ -21,5 +19,5 @@ Default.args = {
   closeModal: action("DecisionModal closed"),
   handleClick: action("DecisionModal action"),
 };
-
+export { Default };
 export default story;

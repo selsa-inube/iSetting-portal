@@ -3,12 +3,12 @@ import { tokensWithReference } from "@design/tokens/tokensWithReference";
 
 type ThemeName = keyof typeof tokensWithReference;
 
-interface ThemeContextType {
+interface IThemeContextType {
   themeName: ThemeName;
   setThemeName: Dispatch<SetStateAction<ThemeName>>;
 }
 
-const ThemeContext = createContext<ThemeContextType>({
+const ThemeContext = createContext<IThemeContextType>({
   themeName: "sistemasenlinea",
   setThemeName: () => {},
 });
@@ -16,4 +16,4 @@ const ThemeContext = createContext<ThemeContextType>({
 const useTheme = () => useContext(ThemeContext);
 
 export { ThemeContext, useTheme };
-export type { ThemeName, ThemeContextType };
+export type { ThemeName, IThemeContextType };

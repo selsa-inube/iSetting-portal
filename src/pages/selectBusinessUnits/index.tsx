@@ -1,10 +1,10 @@
 import { useSelectBusinessUnits } from "@hooks/useSelectBusinessUnits";
 import { SelectBusinessUnitsUI } from "./interface";
 
-function SelectBusinessUnits() {
+const SelectBusinessUnits = () => {
   useSelectBusinessUnits();
 
   return <SelectBusinessUnitsUI />;
-}
+};
 
 export { SelectBusinessUnits };

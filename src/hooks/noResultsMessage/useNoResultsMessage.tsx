@@ -5,7 +5,7 @@ interface INoResultsMessage {
   search: string;
 }
 
-function NoResultsMessage({ search }: INoResultsMessage) {
+const NoResultsMessage = ({ search }: INoResultsMessage) => {
   return (
     <StyledNoResults>
       <Text size="medium">
@@ -16,6 +16,6 @@ function NoResultsMessage({ search }: INoResultsMessage) {
       </Text>
     </StyledNoResults>
   );
-}
+};
 
 export { NoResultsMessage };

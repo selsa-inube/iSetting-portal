@@ -38,9 +38,7 @@ const renderMenuItems = (options: IOption[]) => {
   });
 };
 
-function Menu(props: IMenu) {
-  const { options, handleClose } = props;
-
+const Menu = ({ options, handleClose }: IMenu) => {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleWindowClick = useCallback(
@@ -70,7 +68,7 @@ function Menu(props: IMenu) {
       </StyledMenuContainer>
     </StyledMenu>
   );
-}
+};
 
 export { Menu };
 export type { IMenu };

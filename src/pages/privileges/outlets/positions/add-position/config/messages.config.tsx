@@ -1,6 +1,6 @@
 import { MdOutlineSentimentNeutral, MdThumbUpOffAlt } from "react-icons/md";
 
-export const generalMessage = {
+const generalMessage = {
   success: {
     id: 1,
     icon: <MdThumbUpOffAlt size={18} />,
@@ -16,3 +16,5 @@ export const generalMessage = {
     appearance: "danger",
   },
 };
+
+export { generalMessage };

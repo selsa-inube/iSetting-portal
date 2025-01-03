@@ -17,9 +17,10 @@ interface IGeneralInformationFormUI {
   loading?: boolean;
 }
 
-function GeneralInformationFormUI(props: IGeneralInformationFormUI) {
-  const { formik, loading } = props;
-
+const GeneralInformationFormUI = ({
+  formik,
+  loading,
+}: IGeneralInformationFormUI) => {
   const isMobile = useMediaQuery("(max-width: 990px)");
 
   return (
@@ -70,6 +71,6 @@ function GeneralInformationFormUI(props: IGeneralInformationFormUI) {
       </form>
     </StyledContainer>
   );
-}
+};
 
 export { GeneralInformationFormUI };

@@ -2,10 +2,10 @@ import { Grid } from "@inubekit/grid";
 import { useMediaQueries, useMediaQuery } from "@inubekit/hooks";
 import { Text } from "@inubekit/text";
 import { basic } from "@design/tokens";
-import { StyledRadioBusinessUnit, StyledRadio, StyledImage } from "./styles";
 import { isMobile580 } from "@config/environment";
+import { StyledRadioBusinessUnit, StyledRadio, StyledImage } from "./styles";
 
-interface RadioBusinessUnitProps {
+interface IRBusinessUnit {
   id: string;
   label: string;
   logo: string;
@@ -14,11 +14,12 @@ interface RadioBusinessUnitProps {
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-function RadioBusinessUnit(props: RadioBusinessUnitProps) {
+const RadioBusinessUnit = (props: IRBusinessUnit) => {
   const { name, id, value, label, logo, handleChange } = props;
   const smallScreen = useMediaQuery(isMobile580);
   const mediaQueries = ["(max-width: 532px)", "(max-width: 460px)"];
   const matches = useMediaQueries(mediaQueries);
+
   return (
     <StyledRadioBusinessUnit>
       <Grid
@@ -52,7 +53,7 @@ function RadioBusinessUnit(props: RadioBusinessUnitProps) {
       </Grid>
     </StyledRadioBusinessUnit>
   );
-}
+};
 
 export { RadioBusinessUnit };
-export type { RadioBusinessUnitProps };
+export type { IRBusinessUnit };

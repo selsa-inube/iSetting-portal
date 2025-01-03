@@ -4,7 +4,7 @@ import clientNotFound from "@assets/images/Expired.png";
 import { enviroment } from "@config/environment";
 import { useClearLocalStorageOnMount } from "@hooks/useClearLocalStorageOnMount";
 
-function ErrorNotBusinessUnit() {
+const ErrorNotBusinessUnit = () => {
   const { logout } = useAuth0();
   useClearLocalStorageOnMount();
 
@@ -21,6 +21,6 @@ function ErrorNotBusinessUnit() {
       onClick={handleLogout}
     />
   );
-}
+};
 
 export { ErrorNotBusinessUnit };

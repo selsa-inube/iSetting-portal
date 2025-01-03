@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
-function useClearLocalStorageOnMount() {
+const useClearLocalStorageOnMount = () => {
   useEffect(() => {
     localStorage.clear();
   }, []);
-}
+};
 
 export { useClearLocalStorageOnMount };

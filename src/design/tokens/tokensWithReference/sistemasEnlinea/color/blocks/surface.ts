@@ -1,4 +1,4 @@
-export const surface = {
+const surface = {
   primary: {
     regular: "B400",
     hover: "B300",
@@ -65,3 +65,5 @@ export const surface = {
     disabled: "N20",
   },
 };
+
+export { surface };

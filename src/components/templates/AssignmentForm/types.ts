@@ -6,7 +6,7 @@ interface IEntry {
   n_uso?: string;
 }
 
-interface Option {
+interface IOptions {
   id: string;
   label: string;
   checked?: boolean;
@@ -35,4 +35,4 @@ const titlesOptions = [
   },
 ];
 export { titlesOptions };
-export type { IEntry, Option };
+export type { IEntry, IOptions };

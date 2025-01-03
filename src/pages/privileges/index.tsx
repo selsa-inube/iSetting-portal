@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { PrivilegesUI } from "./interface";
 
-function Privileges() {
+const Privileges = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,6 +16,6 @@ function Privileges() {
   }, [location, navigate]);
 
   return <PrivilegesUI />;
-}
+};
 
 export { Privileges };

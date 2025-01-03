@@ -36,7 +36,7 @@ const defaultContextValue = {
   },
   setBusinessUnitSigla: (value: React.SetStateAction<string>) => {
     console.log(
-      `Business unit sigla set to: ${typeof value === "function" ? value("") : value}`,
+      `Business unit sigla set to: ${typeof value === "function" ? value("") : value}`
     );
   },
   businessUnitSigla: "",

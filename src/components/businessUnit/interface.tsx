@@ -1,11 +1,11 @@
-import React from "react";
 import { MdSearch } from "react-icons/md";
 import { Text } from "@inubekit/text";
 
 import { Stack } from "@inubekit/stack";
 import { Textfield } from "@inubekit/textfield";
 import { Button } from "@inubekit/button";
-
+import { useMediaQuery } from "@inubekit/hooks";
+import { isMobile970 } from "@config/environment";
 import { basic } from "@design/tokens";
 import { RadioBusinessUnit } from "@components/feedback/RadioBusinessUnit";
 import {
@@ -31,7 +31,7 @@ interface IBusinessUnitsUI {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-function NoResultsMessage({ search }: { search: string }) {
+const NoResultsMessage = ({ search }: { search: string }) => {
   return (
     <StyledNoResults>
       <Text size="medium">
@@ -42,9 +42,9 @@ function NoResultsMessage({ search }: { search: string }) {
       </Text>
     </StyledNoResults>
   );
-}
+};
 
-function BusinessUnitsUI({
+const BusinessUnitsUI = ({
   businessUnits,
   search,
   businessUnit,
@@ -52,9 +52,10 @@ function BusinessUnitsUI({
   filterBusinessUnits,
   handleBussinessUnitChange,
   handleSubmit,
-}: IBusinessUnitsUI) {
+}: IBusinessUnitsUI) => {
+  const smallScreen = useMediaQuery(isMobile970);
   return (
-    <StyledBusinessUnits>
+    <StyledBusinessUnits $smallScreen={smallScreen}>
       <Stack
         direction="column"
         padding={`${basic.spacing.s16}${basic.spacing.s0}`}
@@ -83,7 +84,10 @@ function BusinessUnitsUI({
           {filterBusinessUnits(businessUnits, search).length === 0 && (
             <NoResultsMessage search={search} />
           )}
-          <StyledBusinessUnitsList $scroll={businessUnits.length > 5}>
+          <StyledBusinessUnitsList
+            $scroll={businessUnits.length > 5}
+            $smallScreen={smallScreen}
+          >
             <Stack
               direction="column"
               padding={`${basic.spacing.s0}${basic.spacing.s8}`}
@@ -121,6 +125,6 @@ function BusinessUnitsUI({
       </form>
     </StyledBusinessUnits>
   );
-}
+};
 
 export { BusinessUnitsUI };

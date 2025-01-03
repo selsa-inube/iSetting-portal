@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { BusinessUnitsUI } from "./interface";
 import { useBusinessUnit } from "@hooks/useBusinessUnits";
 import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortalBusiness.types";
+import { BusinessUnitsUI } from "./interface";
 
-interface BusinessUnitsProps {
+interface IBusinessUnits {
   businessUnits: IBusinessUnitsPortalStaff[];
 }
 
-function BusinessUnits({ businessUnits }: BusinessUnitsProps) {
+const BusinessUnits = ({ businessUnits }: IBusinessUnits) => {
   const navigate = useNavigate();
   const {
     search,
@@ -29,6 +29,6 @@ function BusinessUnits({ businessUnits }: BusinessUnitsProps) {
       handleSubmit={() => handleSubmit(navigate)}
     />
   );
-}
+};
 
 export { BusinessUnits };

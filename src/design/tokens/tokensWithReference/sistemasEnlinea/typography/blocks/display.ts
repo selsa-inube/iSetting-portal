@@ -1,4 +1,4 @@
-export const display = {
+const display = {
   large: {
     font: "Roboto",
     lineHeight: "64px",
@@ -21,3 +21,5 @@ export const display = {
     weight: "400",
   },
 };
+
+export { display };

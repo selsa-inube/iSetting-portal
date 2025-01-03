@@ -1,13 +1,12 @@
-import { Icon } from "@inubekit/icon"
-import { Text } from "@inubekit/text"
-import { Stack } from "@inubekit/stack"
+import { Icon } from "@inubekit/icon";
+import { Text } from "@inubekit/text";
+import { Stack } from "@inubekit/stack";
 import { basic } from "@design/tokens";
-
 
 import { StyledMenuItemLink } from "./styles";
 import { MenuItemSpacingType } from "./types";
 
-interface MenuItemProps {
+interface IMenuItem {
   title: string;
   description?: string;
   spacing?: MenuItemSpacingType;
@@ -18,18 +17,16 @@ interface MenuItemProps {
   onClick?: () => void;
 }
 
-function MenuItem(props: MenuItemProps) {
-  const {
-    title,
-    description,
-    spacing = "wide",
-    iconBefore,
-    iconAfter,
-    isDisabled = false,
-    path = "#",
-    onClick,
-  } = props;
-
+const MenuItem = ({
+  title,
+  description,
+  spacing = "wide",
+  iconBefore,
+  iconAfter,
+  isDisabled = false,
+  path = "#",
+  onClick,
+}: IMenuItem) => {
   return (
     <StyledMenuItemLink
       spacing={spacing}
@@ -72,7 +69,7 @@ function MenuItem(props: MenuItemProps) {
       )}
     </StyledMenuItemLink>
   );
-}
+};
 
 export { MenuItem };
-export type { MenuItemProps };
+export type { IMenuItem };

@@ -12,7 +12,8 @@ import { basic } from "@design/tokens";
 import { isMobile580 } from "@config/environment";
 
 import { StyledModal } from "./styles";
-interface DecisionModalProps {
+
+interface IDecisionModal {
   title: string;
   portalId: string;
   description: string;
@@ -22,7 +23,7 @@ interface DecisionModalProps {
   handleClick: () => void;
 }
 
-function DecisionModal(props: DecisionModalProps) {
+const DecisionModal = (props: IDecisionModal) => {
   const {
     title,
     portalId,
@@ -61,12 +62,14 @@ function DecisionModal(props: DecisionModalProps) {
   }
 
   return createPortal(
-     <Blanket>
+    <Blanket>
       <StyledModal $smallScreen={smallScreen}>
         <Stack
           direction="column"
           gap={smallScreen ? `${basic.spacing.s16}` : `${basic.spacing.s24}`}
-          padding={smallScreen ? `${basic.spacing.s24}` : `${basic.spacing.s32}` }
+          padding={
+            smallScreen ? `${basic.spacing.s24}` : `${basic.spacing.s32}`
+          }
         >
           <Stack alignItems="center" justifyContent="space-between">
             <Text type="title" size={smallScreen ? "small" : "large"}>
@@ -101,9 +104,9 @@ function DecisionModal(props: DecisionModalProps) {
         </Stack>
       </StyledModal>
     </Blanket>,
-  node
+    node
   );
-}
+};
 
 export { DecisionModal };
-export type { DecisionModalProps };
+export type { IDecisionModal };

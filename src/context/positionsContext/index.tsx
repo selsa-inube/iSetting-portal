@@ -9,13 +9,11 @@ const PositionsContext = createContext<IPositionsContext>(
   {} as IPositionsContext
 );
 
-interface PositionsProviderProps {
+interface IPositionsProvider {
   children: React.ReactNode;
 }
 
-function PositionsProvider(props: PositionsProviderProps) {
-  const { children } = props;
-
+const PositionsProvider = ({ children }: IPositionsProvider) => {
   const [positions, setPositions] = useState<IPosition[]>([]);
   const [roles, setRoles] = useState<IOptionInitialiceEntry[]>([]);
 
@@ -34,7 +32,7 @@ function PositionsProvider(props: PositionsProviderProps) {
       {children}
     </PositionsContext.Provider>
   );
-}
+};
 
 export { PositionsContext, PositionsProvider };
-export type { PositionsProviderProps };
+export type { IPositionsProvider };

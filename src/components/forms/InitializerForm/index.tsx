@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { updateItemData } from "@mocks/utils/dataMock.service";
-
-import { InitializerFormUI } from "./interface";
-
 import {
   IAssignmentFormEntry,
   IMessageState,
 } from "@pages/privileges/outlets/types/forms.types";
 import { IOptionInitialiceEntryApp } from "@pages/privileges/outlets/positions/add-position/types";
+import { InitializerFormUI } from "./interface";
 
 const LOADING_TIMEOUT = 1500;
 
@@ -25,7 +23,7 @@ interface IInitializerForm {
   dataOptionsValueSelect: IOptionInitialiceEntryApp[];
 }
 
-export function InitializerForm(props: IInitializerForm) {
+const InitializerForm = (props: IInitializerForm) => {
   const {
     dataOptionsForms: initialDataOptionsForms,
     handleSubmit,
@@ -39,6 +37,7 @@ export function InitializerForm(props: IInitializerForm) {
     readOnly = false,
     dataOptionsValueSelect,
   } = props;
+
   const [formDataOptions, setFormDataOptions] = useState(
     initialDataOptionsForms
   );
@@ -113,6 +112,7 @@ export function InitializerForm(props: IInitializerForm) {
       dataOptionsValueSelect={dataOptionsValueSelect}
     />
   );
-}
+};
 
+export { InitializerForm };
 export type { IInitializerForm };

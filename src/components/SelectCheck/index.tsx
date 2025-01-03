@@ -114,5 +114,5 @@ const SelectCheck = (props: ISelectCheck) => {
   );
 };
 
-export type { ISelectCheck };
 export { SelectCheck };
+export type { ISelectCheck };

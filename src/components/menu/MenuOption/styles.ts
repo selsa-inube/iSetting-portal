@@ -1,6 +1,6 @@
+import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 import { basic } from "@design/tokens";
-import styled from "styled-components";
 
 const StyledOption = styled.button`
   color: ${({ theme }) =>

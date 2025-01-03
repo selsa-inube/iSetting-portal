@@ -9,5 +9,6 @@ const OptionList = (props: IOptionList) => {
 
   return <StyledOptionList $onClick={onClick}>{children}</StyledOptionList>;
 };
-export type { IOptionList };
+
 export { OptionList };
+export type { IOptionList };

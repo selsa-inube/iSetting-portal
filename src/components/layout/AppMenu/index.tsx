@@ -7,20 +7,22 @@ import { basic } from "@design/tokens";
 import { StyledAppMenu } from "./styles";
 import { IRoute } from "./types";
 
-interface AppMenuProps {
+interface IAppMenu {
   appName: string;
   appDescription: string;
   appRoute: IRoute[];
   children: React.ReactNode;
 }
 
-function AppMenu(props: AppMenuProps) {
+const AppMenu = (props: IAppMenu) => {
   const { appName, appDescription, appRoute, children } = props;
 
   return (
     <StyledAppMenu>
       <Breadcrumbs crumbs={appRoute} />
-      <Stack margin={`${basic.spacing.s24} ${basic.spacing.s0} ${basic.spacing.s48} ${basic.spacing.s0}`}>
+      <Stack
+        margin={`${basic.spacing.s24} ${basic.spacing.s0} ${basic.spacing.s48} ${basic.spacing.s0}`}
+      >
         <PageTitle
           title={appName}
           description={appDescription}
@@ -30,7 +32,7 @@ function AppMenu(props: AppMenuProps) {
       {children}
     </StyledAppMenu>
   );
-}
+};
 
 export { AppMenu };
-export type { AppMenuProps };
+export type { IAppMenu };

@@ -1,25 +1,25 @@
 import localforage from "localforage";
 import { IGeneralInformationEntry } from "@pages/privileges/outlets/positions/components/GeneralInformationForm/types";
 
-function buildData<T>(data: T[]) {
+const buildData = <T>(data: T[]) => {
   const dataMock = data.map((optionData) => {
     const newObj = Object.assign({ id: crypto.randomUUID() }, optionData);
     return newObj;
   });
 
   return dataMock;
-}
+};
 
-async function intializedData<T>(option: string, data: T[]) {
+const intializedData = async <T>(option: string, data: T[]) => {
   try {
     const dataMock = buildData(data);
     await localforage.setItem(option, dataMock);
   } catch (error) {
     return error;
   }
-}
+};
 
-async function getAll(option: string) {
+const getAll = async (option: string) => {
   await fakeNetwork();
   try {
     const optionsData = await localforage.getItem(option);
@@ -32,9 +32,9 @@ async function getAll(option: string) {
     console.error(`Error fetching data for ${option}:`, error);
     return [];
   }
-}
+};
 
-interface functionById {
+interface IIfunctionById {
   key: string;
   nameDB: string;
   identifier: number | string;
@@ -45,7 +45,7 @@ interface functionById {
     | { [key: string]: string };
 }
 
-async function getById(props: functionById) {
+const getById = async (props: IIfunctionById) => {
   const { key, nameDB, identifier } = props;
   try {
     const optionsData = await getAll(nameDB);
@@ -59,9 +59,9 @@ async function getById(props: functionById) {
   } catch (error) {
     return error;
   }
-}
+};
 
-async function deleteItemData(props: functionById) {
+const deleteItemData = async (props: IIfunctionById) => {
   const { key, nameDB, identifier } = props;
   try {
     const data = await getAll(nameDB);
@@ -75,9 +75,9 @@ async function deleteItemData(props: functionById) {
   } catch (error) {
     return error;
   }
-}
+};
 
-async function updateItemData(props: functionById) {
+const updateItemData = async (props: IIfunctionById) => {
   const { key, nameDB, identifier, editData, property } = props;
 
   try {
@@ -92,17 +92,19 @@ async function updateItemData(props: functionById) {
         : editData;
 
       await localforage.setItem(nameDB, data);
+    } else {
+      throw new Error("data structure not valid, must be an object list");
     }
-    throw new Error("data structure not valid, must be an object list");
   } catch (error) {
     return error;
   }
-}
+};
 
-async function fakeNetwork() {
-  return new Promise((res) => {
-    setTimeout(res, Math.random() * 1000);
+const fakeNetwork = async (): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, Math.random() * 1000);
   });
-}
-export { intializedData, getById, deleteItemData, updateItemData, fakeNetwork };
-export type { functionById };
+};
+
+export { fakeNetwork, updateItemData, deleteItemData, getById, intializedData };
+export type { IIfunctionById };

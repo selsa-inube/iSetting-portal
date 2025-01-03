@@ -1,23 +1,22 @@
 import { Stack } from "@inubekit/stack";
-
 import { Divider } from "@components/layout/Divider";
-
 import { basic } from "@design/tokens";
-
 import { MenuHeading } from "../MenuHeading";
 import { ISection } from "./types";
 import { MenuItemSpacingType } from "../MenuItem/types";
 import { MenuItem } from "../MenuItem";
 
-interface MenuSectionProps {
+interface IMenuSection {
   sections: ISection[];
   spacing?: MenuItemSpacingType;
   divider?: boolean;
 }
 
-function MenuSection(props: MenuSectionProps) {
-  const { sections, spacing = "wide", divider = false } = props;
-
+const MenuSection = ({
+  sections,
+  spacing = "wide",
+  divider = false,
+}: IMenuSection) => {
   return (
     <>
       {sections.map((section, index) => (
@@ -61,7 +60,7 @@ function MenuSection(props: MenuSectionProps) {
       ))}
     </>
   );
-}
+};
 
 export { MenuSection };
-export type { MenuSectionProps };
+export type { IMenuSection };

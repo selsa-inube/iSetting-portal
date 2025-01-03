@@ -24,22 +24,21 @@ interface IAddPositionUI {
   handleNextStep: () => void;
 }
 
-function AddStaffRolesUI(props: IAddPositionUI) {
-  const {
-    currentStep,
-    generalInformationRef,
-    initialGeneralInformationValues,
-    isCurrentFormValid,
-    steps,
-    onNextStep,
-    handlePreviousStep,
-    handleNextStep,
-    onPreviousStep,
-    setIsCurrentFormValid,
-  } = props;
-
+const AddStaffRolesUI = ({
+  currentStep,
+  generalInformationRef,
+  initialGeneralInformationValues,
+  isCurrentFormValid,
+  steps,
+  onNextStep,
+  handlePreviousStep,
+  handleNextStep,
+  onPreviousStep,
+  setIsCurrentFormValid,
+}: IAddPositionUI) => {
   const smallScreen = useMediaQuery("(max-width: 990px)");
   const disabled = !isCurrentFormValid;
+
   return (
     <Stack
       direction="column"
@@ -117,6 +116,6 @@ function AddStaffRolesUI(props: IAddPositionUI) {
       </Stack>
     </Stack>
   );
-}
+};
 
 export { AddStaffRolesUI };

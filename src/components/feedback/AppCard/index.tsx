@@ -14,7 +14,7 @@ interface IAppCard {
   isLoading?: boolean;
 }
 
-function AppCard({ label, description, icon, url, isLoading }: IAppCard) {
+const AppCard = ({ label, description, icon, url, isLoading }: IAppCard) => {
   const screenMobile = useMediaQuery("(max-width: 400px)");
   if (isLoading) {
     return (
@@ -48,7 +48,7 @@ function AppCard({ label, description, icon, url, isLoading }: IAppCard) {
       </Stack>
     </StyledAppCard>
   );
-}
+};
 
 export { AppCard };
 export type { IAppCard };

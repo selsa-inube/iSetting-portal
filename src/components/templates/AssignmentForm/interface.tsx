@@ -21,7 +21,7 @@ import { IOption } from "@components/menu/types";
 import { Fieldset } from "@inubekit/fieldset";
 import { IOptionItemChecked } from "@components/SelectCheck/OptionItem";
 import { StyledForm, StyledToggleContainer } from "./styles";
-import { IEntry, Option, titlesOptions } from "./types";
+import { IEntry, IOptions, titlesOptions } from "./types";
 
 interface IAssignmentFormUI {
   entries: IEntry[];
@@ -30,7 +30,7 @@ interface IAssignmentFormUI {
   filterValue: string;
   isAssignAll: boolean;
   menuOptions: IOption[];
-  options: Option[];
+  options: IOptions[];
   showMenu: boolean;
   title: string;
   handleCloseMenuInvitation: () => void;
@@ -44,7 +44,7 @@ interface IAssignmentFormUI {
   readOnly?: boolean;
 }
 
-function AssignmentFormUI(props: IAssignmentFormUI) {
+const AssignmentFormUI = (props: IAssignmentFormUI) => {
   const {
     title,
     handleToggleAllEntries,
@@ -163,6 +163,6 @@ function AssignmentFormUI(props: IAssignmentFormUI) {
       </Fieldset>
     </StyledForm>
   );
-}
+};
 
 export { AssignmentFormUI };

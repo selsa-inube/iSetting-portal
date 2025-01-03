@@ -1,14 +1,14 @@
 import { StyledDivider } from "./styles";
 
-interface DividerProps {
+interface IDivider {
   dashed?: boolean;
 }
 
-function Divider(props: DividerProps) {
+const Divider = (props: IDivider) => {
   const { dashed } = props;
 
   return <StyledDivider $dashed={dashed} />;
-}
+};
 
 export { Divider };
-export type { DividerProps };
+export type { IDivider };

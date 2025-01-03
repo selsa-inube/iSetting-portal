@@ -1,6 +1,6 @@
-import { sizes, status } from "../types";
 import { ArgTypes } from "@storybook/react";
 import { ISelectCheck } from "..";
+import { sizes, status } from "../types";
 
 const parameters = {
   docs: {

@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import { AppContext } from "@context/AppContext";
 import { useContext } from "react";
+import { AppContext } from "@context/AppContext";
 import { validateBusinessUnities } from "@pages/selectBusinessUnits/utils";
 
-function useSelectBusinessUnits() {
+const useSelectBusinessUnits = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { appData, setBusinessUnitsToTheStaff } = useContext(AppContext);
@@ -30,6 +29,6 @@ function useSelectBusinessUnits() {
       navigate(`/selectBusinessUnit/checking-credentials/`);
     }
   }, [location, navigate]);
-}
+};
 
 export { useSelectBusinessUnits };

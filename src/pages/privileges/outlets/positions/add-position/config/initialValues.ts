@@ -5,6 +5,8 @@ const generalInformation: IGeneralInformationEntry = {
   descriptionCreditLine: "",
 };
 
-export const initalValuesPositions = {
+const initalValuesPositions = {
   generalInformation,
 };
+
+export { initalValuesPositions };

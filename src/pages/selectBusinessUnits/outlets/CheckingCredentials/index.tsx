@@ -3,11 +3,11 @@ import { IBusinessUnitsPortalStaff } from "@ptypes/staffPortalBusiness.types";
 import { useCheckCredentials } from "@hooks/useCheckCredentials";
 import { CheckingCredentialsUI } from "./interface";
 
-function CheckingCredentials({
+const CheckingCredentials = ({
   businessUnits,
 }: {
   businessUnits: IBusinessUnitsPortalStaff[];
-}) {
+}) => {
   const checkCredentials = useCheckCredentials(businessUnits);
 
   useEffect(() => {
@@ -16,6 +16,6 @@ function CheckingCredentials({
   }, [checkCredentials]);
 
   return <CheckingCredentialsUI />;
-}
+};
 
 export { CheckingCredentials };

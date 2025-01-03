@@ -9,18 +9,14 @@ interface IMenuLink {
   path: string;
 }
 
-function MenuLink(props: IMenuLink) {
-  const { label, icon, path } = props;
-
-  return (
-    <StyledLink to={path}>
-      <Stack gap={basic.spacing.s12} alignItems="center">
-        {icon}
-        <Text size="small">{label}</Text>
-      </Stack>
-    </StyledLink>
-  );
-}
+const MenuLink = ({ label, icon, path }: IMenuLink) => (
+  <StyledLink to={path}>
+    <Stack gap={basic.spacing.s12} alignItems="center">
+      {icon}
+      <Text size="small">{label}</Text>
+    </Stack>
+  </StyledLink>
+);
 
 export { MenuLink };
 export type { IMenuLink };

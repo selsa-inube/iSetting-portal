@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { inube } from "@inubekit/foundations";
 import { basic } from "@design/tokens";
 
-interface StyledAppCardProps {
+interface IStyledAppCard {
   $isMobile: boolean;
   $smallScreen?: boolean;
 }
-const StyledAppCard = styled(Link)<StyledAppCardProps>`
+const StyledAppCard = styled(Link)<IStyledAppCard>`
   box-sizing: border-box;
   padding: ${(props) =>
     props.$smallScreen ? basic.spacing.s200 : basic.spacing.s300};

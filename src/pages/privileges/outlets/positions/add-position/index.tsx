@@ -2,7 +2,7 @@ import { useAddStaffRoles } from "@hooks/positionsData/useAddStaffRoles";
 import { addStaffRolesSteps } from "./config/addPosition.config";
 import { AddStaffRolesUI } from "./interface";
 
-function AddPosition() {
+const AddPosition = () => {
   const {
     currentStep,
     formValues,
@@ -27,6 +27,6 @@ function AddPosition() {
       handleNextStep={handleNextStep}
     />
   );
-}
+};
 
 export { AddPosition };

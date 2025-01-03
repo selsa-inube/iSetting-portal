@@ -12,13 +12,12 @@ const meta: Meta<typeof OptionItemChecked> = {
   argTypes: props,
 };
 
-export default meta;
-
-export const Default: Story = {
+const Default: Story = {
   args: {
     id: "1",
     label: "Item 1",
   },
 };
-
+export { Default };
+export default meta;
 export type { Story };

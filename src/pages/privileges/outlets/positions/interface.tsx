@@ -39,7 +39,7 @@ interface IPositions {
   loading: boolean;
 }
 
-function PositionsUI(props: IPositions) {
+const PositionsUI = (props: IPositions) => {
   const { handleSearchPositions, searchPosition, loading, data } = props;
   const smallScreen = useMediaQuery(isMobile580);
   const location = useLocation();
@@ -174,6 +174,6 @@ function PositionsUI(props: IPositions) {
       </Stack>
     </Stack>
   );
-}
+};
 
 export { PositionsUI };

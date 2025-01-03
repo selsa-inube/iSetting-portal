@@ -1,4 +1,4 @@
-export const text = {
+const text = {
   primary: {
     regular: "B400",
     hover: "B300",
@@ -50,3 +50,5 @@ export const text = {
     disabled: "N70",
   },
 };
+
+export { text };

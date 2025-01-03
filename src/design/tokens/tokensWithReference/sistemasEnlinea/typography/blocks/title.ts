@@ -1,4 +1,4 @@
-export const title = {
+const title = {
   large: {
     font: "Roboto",
     lineHeight: "28px",
@@ -21,3 +21,5 @@ export const title = {
     weight: "500",
   },
 };
+
+export { title };

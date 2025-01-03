@@ -26,7 +26,7 @@ interface IHome {
   data?: ICardData[];
 }
 
-function HomeUI(props: IHome) {
+const HomeUI = (props: IHome) => {
   const { data } = props;
   const { appData } = useContext(AppContext);
 
@@ -111,6 +111,6 @@ function HomeUI(props: IHome) {
       </StyledContainer>
     </>
   );
-}
+};
 
 export { HomeUI };

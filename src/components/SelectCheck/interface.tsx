@@ -177,5 +177,5 @@ const SelectCheckUI = forwardRef<HTMLDivElement, ISelectCheckUI>(
 
 SelectCheckUI.displayName = "SelectCheckUI";
 
-export type { ISelectCheckUI };
 export { SelectCheckUI };
+export type { ISelectCheckUI };

@@ -7,7 +7,7 @@ import { Button } from "@inubekit/button";
 import { Stack } from "@inubekit/stack";
 import { basic } from "@design/tokens";
 
-import { ILogoutModalProps, LogoutModal } from ".";
+import { ILogoutModal, LogoutModal } from ".";
 
 const story = {
   title: "components/feedback/logout",
@@ -23,7 +23,7 @@ const story = {
   ],
 };
 
-const Default = (args: ILogoutModalProps) => {
+const Default = (args: ILogoutModal) => {
   const [showBlanket, setShowBlanket] = useState(false);
 
   const handleShowBlanket = () => {

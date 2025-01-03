@@ -3,7 +3,7 @@ import { useBusinessManagersId } from "@hooks/useBusinessManageresId";
 import { AppContext } from "@context/AppContext";
 import { PositionsUI } from "./interface";
 
-function Positions() {
+const Positions = () => {
   const [searchPosition, setSearchPosition] = useState<string>("");
   const [loading] = useState<boolean>(false);
 
@@ -15,6 +15,7 @@ function Positions() {
   const handleSearchPositions = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchPosition(e.target.value);
   };
+
   return (
     <PositionsUI
       handleSearchPositions={handleSearchPositions}
@@ -23,6 +24,6 @@ function Positions() {
       data={businessManagersData}
     />
   );
-}
+};
 
 export { Positions };

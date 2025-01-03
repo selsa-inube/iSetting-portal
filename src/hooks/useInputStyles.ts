@@ -24,4 +24,4 @@ const useBorderColor = (
   return theme?.palette?.neutral?.N40 || inube.palette.neutral.N40;
 };
 
-export default useBorderColor;
+export { useBorderColor };

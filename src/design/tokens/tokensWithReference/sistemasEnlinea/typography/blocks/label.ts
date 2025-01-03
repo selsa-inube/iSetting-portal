@@ -1,4 +1,4 @@
-export const label = {
+const label = {
   large: {
     font: "Roboto",
     lineHeight: "20px",
@@ -21,3 +21,5 @@ export const label = {
     weight: "500",
   },
 };
+
+export { label };

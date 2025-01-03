@@ -24,7 +24,7 @@ interface InitializerFormUIProps {
   changeData?: IAssignmentFormEntry[];
 }
 
-export function InitializerFormUI(props: InitializerFormUIProps) {
+const InitializerFormUI = (props: InitializerFormUIProps) => {
   const {
     dataOptionsForms,
     isLoading,
@@ -70,4 +70,6 @@ export function InitializerFormUI(props: InitializerFormUIProps) {
       valueSelect={dataOptionsValueSelect}
     />
   );
-}
+};
+
+export { InitializerFormUI };

@@ -6,14 +6,14 @@ import { Divider } from "@inubekit/divider";
 import { basic } from "@design/tokens";
 import { StyledCard, StyledContainer } from "./styles";
 
-export interface RulesViewCardProps {
+interface IRulesViewCard {
   children: React.ReactNode;
   handleDelete: (id: string) => void;
   handleView: (id: string) => void;
   id: string;
 }
 
-export const RulesViewCard = (props: RulesViewCardProps) => {
+const RulesViewCard = (props: IRulesViewCard) => {
   const { children, handleDelete, handleView, id } = props;
   return (
     <StyledCard>
@@ -54,3 +54,5 @@ export const RulesViewCard = (props: RulesViewCardProps) => {
     </StyledCard>
   );
 };
+export { RulesViewCard };
+export type { IRulesViewCard };

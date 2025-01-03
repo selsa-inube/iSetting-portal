@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { IOptionItemChecked } from "@components/SelectCheck/OptionItem";
 import { IEntry } from "@components/templates/AssignmentForm/types";
 
-function useAssignmentFormLogic(
+const useAssignmentFormLogic = (
   entries: IEntry[],
   changeData: IEntry[],
   setChangedData: (changeData: IEntry[]) => void,
   handleChange: (entries: IEntry[]) => void
-) {
+) => {
   const [filter, setFilter] = useState("");
   const [showMenu, setShowMenu] = useState(false);
   const [isAssignAll, setIsAssignAll] = useState(false);
@@ -118,6 +118,6 @@ function useAssignmentFormLogic(
     setShowMenu,
     showMenu,
   };
-}
+};
 
 export { useAssignmentFormLogic };

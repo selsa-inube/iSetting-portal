@@ -2,7 +2,7 @@ import { ArgTypes } from "@storybook/react";
 
 import { IIMultipleChoices } from "..";
 
-export const parameters = {
+const parameters = {
   docs: {
     description: {
       component:
@@ -14,7 +14,7 @@ export const parameters = {
   },
 };
 
-export const props: Partial<ArgTypes<IIMultipleChoices>> = {
+const props: Partial<ArgTypes<IIMultipleChoices>> = {
   id: {
     description:
       "uniquely identifies the **Textfield Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
@@ -45,3 +45,5 @@ export const props: Partial<ArgTypes<IIMultipleChoices>> = {
     },
   },
 };
+
+export { parameters, props };

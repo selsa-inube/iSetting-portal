@@ -1,4 +1,4 @@
-export const palette = {
+const palette = {
   neutral: {
     N900: "#091E42",
     N800: "#172B4D",
@@ -96,3 +96,5 @@ export const palette = {
     P50: "#EAE6FF",
   },
 };
+
+export { palette };

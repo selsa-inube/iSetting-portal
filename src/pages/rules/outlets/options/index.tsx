@@ -1,7 +1,7 @@
 import { RulesOptionsUI } from "./interface";
 import { rulesOptionsConfig, appsConfig } from "../../config/rules.config";
 
-function RulesOptions() {
+const RulesOptions = () => {
   return (
     <RulesOptionsUI
       appName={appsConfig[0].label}
@@ -10,7 +10,6 @@ function RulesOptions() {
       appRoute={appsConfig[0].crumbs}
     />
   );
-}
+};
 
-
-export { RulesOptions  };
+export { RulesOptions };

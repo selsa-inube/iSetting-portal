@@ -1,8 +1,8 @@
 import { ArgTypes } from "@storybook/react";
 
-import { RulesViewCardProps } from "..";
+import { IRulesViewCard } from "..";
 
-export const parameters = {
+const parameters = {
   docs: {
     description: {
       component: "Component to handle the validity of a product or service",
@@ -13,8 +13,8 @@ export const parameters = {
   },
 };
 
-export const props: Partial<ArgTypes<RulesViewCardProps>> = {
-  children:{
+const props: Partial<ArgTypes<IRulesViewCard>> = {
+  children: {
     description: "The criteria for the decision",
     table: {
       type: {
@@ -22,7 +22,7 @@ export const props: Partial<ArgTypes<RulesViewCardProps>> = {
       },
     },
   },
-  handleDelete:{
+  handleDelete: {
     description: "Function to handle the deletion of a rule",
     table: {
       type: {
@@ -30,7 +30,7 @@ export const props: Partial<ArgTypes<RulesViewCardProps>> = {
       },
     },
   },
-  handleView:{
+  handleView: {
     description: "Function to handle the viewing of a rule",
     table: {
       type: {
@@ -38,7 +38,7 @@ export const props: Partial<ArgTypes<RulesViewCardProps>> = {
       },
     },
   },
-  id:{
+  id: {
     description: "The id of the rule",
     table: {
       type: {
@@ -47,3 +47,5 @@ export const props: Partial<ArgTypes<RulesViewCardProps>> = {
     },
   },
 };
+
+export { parameters, props };

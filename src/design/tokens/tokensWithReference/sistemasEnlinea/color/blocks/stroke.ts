@@ -1,4 +1,4 @@
-export const stroke = {
+const stroke = {
   primary: {
     regular: "B400",
     hover: "B300",
@@ -58,3 +58,5 @@ export const stroke = {
     disabled: "N70,",
   },
 };
+
+export { stroke };

@@ -2,13 +2,13 @@ import { IPosition } from "@pages/privileges/outlets/positions/add-position/type
 
 type ModalTypes = "fields" | "search";
 
-interface Field {
+interface IField {
   id: string;
   labelName: string;
   type?: string;
 }
 
-interface Action {
+interface IAction {
   id: string;
   content:
     | string
@@ -23,13 +23,13 @@ interface InteractiveModalProps {
   portalId: string;
   title: string;
   actionsTitle?: string;
-  actions?: Action[];
+  actions?: IAction[];
   divider?: boolean;
   id?: string;
   idLabel?: string;
   infoTitle?: string;
   label?: string;
-  labels?: Field[];
+  labels?: IField[];
   name?: string;
   nameLabel?: string;
   onClick?: string;
@@ -42,4 +42,4 @@ interface InteractiveModalProps {
   type?: ModalTypes;
 }
 
-export type { Field, Action, InteractiveModalProps, ModalTypes };
+export type { IField, IAction, InteractiveModalProps, ModalTypes };

@@ -15,7 +15,7 @@ interface IBusinessUnits {
   businessUnits: IBusinessUnit[];
 }
 
-function SelectBusinessUnitsRoutes() {
+const SelectBusinessUnitsRoutes = () => {
   const { businessUnitsToTheStaff } = useContext(AppContext);
   const businessUnits = businessUnitsToTheStaff;
 
@@ -41,7 +41,7 @@ function SelectBusinessUnitsRoutes() {
       <Route path="/*" element={<ErrorPage />} />
     </Routes>
   );
-}
+};
 
 export { SelectBusinessUnitsRoutes };
 

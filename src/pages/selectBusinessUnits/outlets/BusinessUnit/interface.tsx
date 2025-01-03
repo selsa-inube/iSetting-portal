@@ -29,7 +29,7 @@ interface IBusinessUnitsUI {
   handleSubmit: () => void;
 }
 
-function BusinessUnitsUI({
+const BusinessUnitsUI = ({
   businessUnits,
   search,
   businessUnit,
@@ -37,7 +37,7 @@ function BusinessUnitsUI({
   filterBusinessUnits,
   handleBussinessUnitChange,
   handleSubmit,
-}: IBusinessUnitsUI) {
+}: IBusinessUnitsUI) => {
   const filteredBusinessUnits = filterBusinessUnits(businessUnits, search);
 
   return (
@@ -97,6 +97,6 @@ function BusinessUnitsUI({
       </form>
     </StyledBusinessUnits>
   );
-}
+};
 
 export { BusinessUnitsUI };

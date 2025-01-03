@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 import { basic } from "@design/tokens";
-import useBorderColor from "@hooks/useInputStyles";
+import { useBorderColor } from "@hooks/useInputStyles";
 import { useInputColor } from "@hooks/useSelectCheck";
 import { ISelectCheck } from ".";
 

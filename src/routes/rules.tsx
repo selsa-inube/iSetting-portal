@@ -4,7 +4,7 @@ import { ErrorPage } from "@components/layout/ErrorPage";
 import { RulesOptions } from "@pages/rules/outlets/options";
 import { Rules } from "@pages/rules";
 
-function RulesRoutes() {
+const RulesRoutes = () => {
   return (
     <Routes>
       <Route path="/rules" element={<Rules />} />
@@ -12,6 +12,6 @@ function RulesRoutes() {
       <Route path="/*" element={<ErrorPage />} />
     </Routes>
   );
-}
+};
 
 export { RulesRoutes };

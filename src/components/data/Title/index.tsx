@@ -16,7 +16,7 @@ interface ITitle {
   sizeTitle?: ITextSize;
 }
 
-function Title(props: ITitle) {
+const Title = (props: ITitle) => {
   const {
     title,
     sizeTitle = "medium",
@@ -69,7 +69,7 @@ function Title(props: ITitle) {
       </Stack>
     </>
   );
-}
+};
 
 export { Title };
 export type { ITitle };

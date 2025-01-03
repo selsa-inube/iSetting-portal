@@ -21,16 +21,18 @@ import { GlobalStyles } from "./styles/global";
 import { ThemeProviderWrapper } from "./context/ThemeContext";
 
 const redirect_uri = window.location.origin;
-function LogOut() {
+const LogOut = () => {
   localStorage.clear();
   const { logout } = useAuth0();
   logout({ logoutParams: { returnTo: redirect_uri } });
   return <Home />;
-}
-function FirstPage() {
+};
+
+const FirstPage = () => {
   const { businessUnitSigla } = useContext(AppContext);
   return businessUnitSigla.length === 0 ? <SelectBusinessUnits /> : <Home />;
-}
+};
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -47,10 +49,12 @@ const router = createBrowserRouter(
     </>
   )
 );
+
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const portalCode = params.get("portal");
-function App() {
+
+const App = () => {
   const { portalData, hasError: portalError } = usePortalData(portalCode);
   const { businessManagersData, hasError: businessError } =
     useBusinessManagers(portalData);
@@ -74,6 +78,7 @@ function App() {
   if (!isAuthenticated) {
     return null;
   }
+
   return (
     <>
       <GlobalStyles />
@@ -84,6 +89,6 @@ function App() {
       </ThemeProviderWrapper>
     </>
   );
-}
+};
 
 export { App };

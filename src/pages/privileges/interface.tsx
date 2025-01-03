@@ -1,7 +1,7 @@
 import { AppPage } from "@components/layout/AppPage";
 
-function PrivilegesUI() {
+const PrivilegesUI = () => {
   return <AppPage />;
-}
+};
 
 export { PrivilegesUI };

@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
 
-import { SubjectSearchCard, SubjectSearchCardProps } from ".";
+import { SubjectSearchCard, ISubjectSearchCard } from ".";
 
 const story = {
   component: [SubjectSearchCard],
@@ -24,13 +24,13 @@ const data = {
   id: 10,
 };
 
-const Template: StoryFn<SubjectSearchCardProps> = (args) => (
+const Template: StoryFn<ISubjectSearchCard> = (args) => (
   <SubjectSearchCard {...args} />
 );
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 Default.args = {
   subjectSearchData: data,
 };
-
 export default story;
+export { Default };

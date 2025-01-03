@@ -9,18 +9,14 @@ interface IMenuOption {
   handleClick: () => void;
 }
 
-function MenuOption(props: IMenuOption) {
-  const { label, icon, handleClick } = props;
-
-  return (
-    <StyledOption onClick={handleClick} type="button">
-      <Stack gap={basic.spacing.s12} alignItems="center">
-        {icon}
-        <Text size="small">{label}</Text>
-      </Stack>
-    </StyledOption>
-  );
-}
+const MenuOption = ({ label, icon, handleClick }: IMenuOption) => (
+  <StyledOption onClick={handleClick} type="button">
+    <Stack gap={basic.spacing.s12} alignItems="center">
+      {icon}
+      <Text size="small">{label}</Text>
+    </Stack>
+  </StyledOption>
+);
 
 export { MenuOption };
 export type { IMenuOption };

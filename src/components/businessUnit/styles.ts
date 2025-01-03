@@ -1,18 +1,16 @@
 import styled from "styled-components";
 import { basic } from "@design/tokens";
 
-interface StyledBusinessUnitsListProps {
+interface IStyledBusinessUnitsList {
   $scroll?: boolean;
+  $smallScreen: boolean;
 }
 
-const StyledBusinessUnits = styled.div`
+const StyledBusinessUnits = styled.div<IStyledBusinessUnitsList>`
   & form {
     & > div {
       margin: auto;
-      width: 500px;
-      @media screen and (max-width: 532px) {
-        width: auto;
-      }
+      width: ${({ $smallScreen }) => ($smallScreen ? "500px" : "auto")};
     }
   }
 
@@ -21,21 +19,14 @@ const StyledBusinessUnits = styled.div`
   }
 `;
 
-const StyledBusinessUnitsText = styled.div`
-  @media screen and (max-width: 532px) {
-  }
-`;
-
-const StyledBusinessUnitsList = styled.div<StyledBusinessUnitsListProps>`
+const StyledBusinessUnitsList = styled.div<IStyledBusinessUnitsList>`
   & > div {
     list-style: none;
+    min-height: ${({ $smallScreen }) => ($smallScreen ? "300px" : "200px")};
     min-height: 300px;
     max-height: 430px;
     width: inherit;
     overflow-y: ${({ $scroll }) => ($scroll ? "scroll" : "visible")};
-    @media screen and (max-height: 1000px) {
-      min-height: 200px;
-    }
   }
 `;
 
@@ -52,5 +43,4 @@ export {
   StyledBusinessUnitsList,
   StyledNoResults,
   StyledBusinessUnitsItem,
-  StyledBusinessUnitsText,
 };

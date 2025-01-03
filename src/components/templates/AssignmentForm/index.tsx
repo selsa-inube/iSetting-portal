@@ -13,7 +13,7 @@ interface IAssignmentForm {
   valueSelect: IOptionInitialiceEntryApp[];
 }
 
-function AssignmentForm(props: IAssignmentForm) {
+const AssignmentForm = (props: IAssignmentForm) => {
   const {
     handleChange,
     entries,
@@ -69,7 +69,7 @@ function AssignmentForm(props: IAssignmentForm) {
       handleFilterInput={handleFilterChange}
     />
   );
-}
+};
 
 export { AssignmentForm };
 export type { IAssignmentForm };

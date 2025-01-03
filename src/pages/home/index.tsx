@@ -1,8 +1,8 @@
 import { appCards } from "@config/appCards";
 import { HomeUI } from "./interface";
 
-function Home() {
+const Home = () => {
   return <HomeUI data={appCards} />;
-}
+};
 
 export { Home };

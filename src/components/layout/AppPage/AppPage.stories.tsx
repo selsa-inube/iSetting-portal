@@ -15,6 +15,6 @@ const meta: Meta<typeof AppPage> = {
   ],
 };
 
-export const Default = () => <AppPage />;
-
+const Default = () => <AppPage />;
+export { Default };
 export default meta;
